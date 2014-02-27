@@ -7,12 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "GameSession.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.gameSession = [GameSession new];
+    
+    self.questionsListe = [[NSMutableArray alloc] init];
+    self.gageListe = [[NSMutableDictionary alloc] init];
+    
     return YES;
 }
 							

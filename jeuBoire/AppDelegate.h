@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class GameSession;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) GameSession *gameSession;
+
+@property (retain, nonatomic) NSMutableArray *questionsListe;
+
+@property (strong, nonatomic) NSMutableDictionary *gageListe;
 
 @end
