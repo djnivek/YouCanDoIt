@@ -19,6 +19,7 @@
 		0E741282188C3C6000821784 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E74127E188C3C6000821784 /* background@2x.png */; };
 		0E741283188C3C6000821784 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E74127F188C3C6000821784 /* button.png */; };
 		0E741284188C3C6000821784 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E741280188C3C6000821784 /* button@2x.png */; };
+		0E76036D18C0FBA100E657BE /* PlayersListSV.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E76036C18C0FBA100E657BE /* PlayersListSV.m */; };
 		0EB3B0FA1896714E0016E437 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB3B0F81896714E0016E437 /* bg.png */; };
 		0EB3B0FB1896714E0016E437 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB3B0F91896714E0016E437 /* bg@2x.png */; };
 		0EDD7E2D188590A2009F8507 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDD7E2C188590A2009F8507 /* Foundation.framework */; };
@@ -34,7 +35,6 @@
 		0EDD7E56188590A2009F8507 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EDD7E54188590A2009F8507 /* InfoPlist.strings */; };
 		0EDD7E58188590A2009F8507 /* jeuBoireTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E57188590A2009F8507 /* jeuBoireTests.m */; };
 		0EDD7E6318859680009F8507 /* ViewControllerSelectPlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E6218859680009F8507 /* ViewControllerSelectPlayers.m */; };
-		0EDD7E6618859F71009F8507 /* ViewControllerDefinePlayerName.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E6518859F71009F8507 /* ViewControllerDefinePlayerName.m */; };
 		0EDD7E6A1885A0D6009F8507 /* ViewControllerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E691885A0D6009F8507 /* ViewControllerGame.m */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +66,8 @@
 		0E74127E188C3C6000821784 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		0E74127F188C3C6000821784 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		0E741280188C3C6000821784 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		0E76036B18C0FBA100E657BE /* PlayersListSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersListSV.h; sourceTree = "<group>"; };
+		0E76036C18C0FBA100E657BE /* PlayersListSV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersListSV.m; sourceTree = "<group>"; };
 		0EB3B0F81896714E0016E437 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		0EB3B0F91896714E0016E437 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		0EDD7E29188590A2009F8507 /* jeuBoire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jeuBoire.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,8 +90,6 @@
 		0EDD7E57188590A2009F8507 /* jeuBoireTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jeuBoireTests.m; sourceTree = "<group>"; };
 		0EDD7E6118859680009F8507 /* ViewControllerSelectPlayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerSelectPlayers.h; sourceTree = "<group>"; };
 		0EDD7E6218859680009F8507 /* ViewControllerSelectPlayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSelectPlayers.m; sourceTree = "<group>"; };
-		0EDD7E6418859F71009F8507 /* ViewControllerDefinePlayerName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDefinePlayerName.h; sourceTree = "<group>"; };
-		0EDD7E6518859F71009F8507 /* ViewControllerDefinePlayerName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDefinePlayerName.m; sourceTree = "<group>"; };
 		0EDD7E681885A0D6009F8507 /* ViewControllerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerGame.h; sourceTree = "<group>"; };
 		0EDD7E691885A0D6009F8507 /* ViewControllerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerGame.m; sourceTree = "<group>"; };
 		1E55FD6926DB4C42B323FC7B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -125,6 +125,8 @@
 			children = (
 				0E3EE6E618BF5C22006501D4 /* PlayerProfilView.h */,
 				0E3EE6E718BF5C22006501D4 /* PlayerProfilView.m */,
+				0E76036B18C0FBA100E657BE /* PlayersListSV.h */,
+				0E76036C18C0FBA100E657BE /* PlayersListSV.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -212,8 +214,6 @@
 				0EDD7E33188590A2009F8507 /* Supporting Files */,
 				0EDD7E6118859680009F8507 /* ViewControllerSelectPlayers.h */,
 				0EDD7E6218859680009F8507 /* ViewControllerSelectPlayers.m */,
-				0EDD7E6418859F71009F8507 /* ViewControllerDefinePlayerName.h */,
-				0EDD7E6518859F71009F8507 /* ViewControllerDefinePlayerName.m */,
 				0EDD7E681885A0D6009F8507 /* ViewControllerGame.h */,
 				0EDD7E691885A0D6009F8507 /* ViewControllerGame.m */,
 				0E4325F3188DAC680022C7D0 /* ViewControllerLoader.h */,
@@ -390,12 +390,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EDD7E43188590A2009F8507 /* ViewController.m in Sources */,
+				0E76036D18C0FBA100E657BE /* PlayersListSV.m in Sources */,
 				0EDD7E3D188590A2009F8507 /* AppDelegate.m in Sources */,
 				0EDD7E6A1885A0D6009F8507 /* ViewControllerGame.m in Sources */,
 				0E741278188C316600821784 /* GameSession.m in Sources */,
 				0E74127B188C318D00821784 /* Player.m in Sources */,
 				0E3EE6E818BF5C22006501D4 /* PlayerProfilView.m in Sources */,
-				0EDD7E6618859F71009F8507 /* ViewControllerDefinePlayerName.m in Sources */,
 				0E741271188C309700821784 /* Question.m in Sources */,
 				0E741274188C30AC00821784 /* Gage.m in Sources */,
 				0E4325F5188DAC680022C7D0 /* ViewControllerLoader.m in Sources */,
@@ -535,7 +535,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jeuBoire/jeuBoire-Prefix.pch";
 				INFOPLIST_FILE = "jeuBoire/jeuBoire-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -553,7 +555,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jeuBoire/jeuBoire-Prefix.pch";
 				INFOPLIST_FILE = "jeuBoire/jeuBoire-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

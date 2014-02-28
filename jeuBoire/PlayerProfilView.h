@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerProfilView : UIView
+@interface PlayerProfilView : UIView <UITextFieldDelegate>
+
+@property (nonatomic, retain) UITextField *playerName;
+@property (nonatomic, retain) UISegmentedControl *playerSex;
+@property (nonatomic, retain) UILabel *playerNum;
 
 @end

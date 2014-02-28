@@ -7,6 +7,7 @@
 //
 
 #import "PlayerProfilView.h"
+#define dyELEMENT 50
 
 @implementation PlayerProfilView
 
@@ -14,8 +15,16 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:[UIColor redColor]];
-        [self setAlpha:0.3];
+        [self setBackgroundColor:[UIColor clearColor]];
+        
+        //  Init Label
+        self.playerNum = [[UILabel alloc] init];
+        
+        //  Init Textfield
+        self.playerName = [[UITextField alloc] init];
+        
+        //  Init SegmentedControl
+        self.playerSex = [[UISegmentedControl alloc] initWithItems:@[@"Man", @"Woman"]];
     }
     return self;
 }
@@ -30,18 +39,17 @@
     //  Set Label
     CGFloat labelHeight = 100;
     CGFloat labelWidth = 150;
-    CGRect labelFrame = CGRectMake((screenFrame.size.width/2)-(labelWidth/2),
-                                   (screenFrame.size.height/2)-(labelHeight/2),
+    CGRect labelFrame = CGRectMake((screenFrame.size.width)-(labelWidth),
+                                   (labelHeight/2),
                                    labelWidth,
                                    labelHeight);
     
-    UILabel *playerNumLabel = [[UILabel alloc] initWithFrame:labelFrame];
-    playerNumLabel.backgroundColor = [UIColor clearColor];
-    playerNumLabel.textColor = [UIColor whiteColor];
-    playerNumLabel.text = [NSString stringWithFormat:@"%d", 1];
-    playerNumLabel.textAlignment = NSTextAlignmentCenter;
-    playerNumLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
-    [self addSubview:playerNumLabel];
+    [self.playerNum setFrame:labelFrame];
+    [self.playerNum setBackgroundColor:[UIColor clearColor]];
+    [self.playerNum setTextColor:[UIColor whiteColor]];
+    [self.playerNum setTextAlignment:NSTextAlignmentRight];
+    [self.playerNum setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120]];
+    [self addSubview:self.playerNum];
     
     //  Set TextField
     CGFloat txtFieldHeight = 40;
@@ -50,9 +58,25 @@
                                    (screenFrame.size.height/2)-(txtFieldHeight/2),
                                    txtFieldWidth,
                                    txtFieldHeight);
-    UITextField *playerNameTxtField = [[UITextField alloc] initWithFrame:txtFieldFrame];
-    playerNameTxtField.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
-    [self addSubview:playerNameTxtField];
+    [self.playerName setFrame:txtFieldFrame];
+    [self.playerName setPlaceholder:@"Surname"];
+    [self.playerName setTextAlignment:NSTextAlignmentCenter];
+    [self.playerName setTextColor:[UIColor blackColor]];
+    [self.playerName setDelegate:self];
+    [self.playerName setReturnKeyType:UIReturnKeyDone];
+    [self.playerName setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:18]];
+    [self addSubview:self.playerName];
+    
+    //  Set SegmentedControl
+    CGPoint segmentedControlPoint = CGPointMake((screenFrame.size.width/2),
+                                             txtFieldFrame.origin.y+txtFieldFrame.size.height+dyELEMENT);
+    [self.playerSex setCenter:segmentedControlPoint];
+    [self addSubview:self.playerSex];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.playerName resignFirstResponder];
+    return true;
 }
 
 

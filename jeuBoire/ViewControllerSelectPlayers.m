@@ -9,6 +9,7 @@
 #import "ViewControllerSelectPlayers.h"
 #import <LBBlurredImage/UIImageView+LBBlurredImage.h>
 #import "PlayerProfilView.h"
+#import "PlayersListSV.h"
 
 @interface ViewControllerSelectPlayers ()
 
@@ -16,7 +17,7 @@
 
 #define MAX_PLAYERS 12
 #define MIN_PLAYERS 2
-#define NUMBER_OF_VIEW 2
+#define NUMBER_OF_VIEW 3
 
 @implementation ViewControllerSelectPlayers
 
@@ -49,6 +50,10 @@
     }
     
     [playersLabel setText:[NSString stringWithFormat:@"%d", (int)value]];
+    if ((int)value > [self.playersListScrollView nbPlayers])
+        [self.playersListScrollView addPlayerView];
+    else
+        [self.playersListScrollView removeLastPlayerView];
 }
 
 #pragma mark - VIEW -
@@ -62,17 +67,32 @@
     self.screenHeight = [UIScreen mainScreen].bounds.size.height;
     self.screenWidth = [UIScreen mainScreen].bounds.size.width;
     
-    UIImage *background = [UIImage imageNamed:@"bg"];
+    //UIImage *background = [UIImage imageNamed:@"bg"];
     
-    self.backgroundImageView = [[UIImageView alloc] initWithImage:background];
-    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.view addSubview:self.backgroundImageView];
+    self.mainBackgroundView = [[UIView alloc] initWithFrame:screenFrame];
+    [self.mainBackgroundView setBackgroundColor:[UIColor cyanColor]];
+    [self.view addSubview:self.mainBackgroundView];
+    //self.backgroundImageView = [[UIImageView alloc] initWithImage:background];
+    //self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+    //[self.view addSubview:self.backgroundImageView];
     
-    self.blurredImageView = [[UIImageView alloc] init];
-    self.blurredImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.blurredImageView.alpha = 0;
-    [self.blurredImageView setImageToBlur:background blurRadius:10 completionBlock:nil];
-    [self.view addSubview:self.blurredImageView];
+    //self.blurredImageView = [[UIImageView alloc] init];
+    //self.blurredImageView.contentMode = UIViewContentModeScaleAspectFill;
+    //self.blurredImageView.alpha = 0;
+    //[self.blurredImageView setImageToBlur:background blurRadius:10 completionBlock:nil];
+    //[self.view addSubview:self.blurredImageView];
+    
+    self.bottomBackgroundView = [[UIView alloc] initWithFrame:screenFrame];
+    [self.bottomBackgroundView setBackgroundColor:[UIColor redColor]];
+    self.bottomBackgroundView.alpha = 0;
+    [self.view addSubview:self.bottomBackgroundView];
+    
+    self.endBackgroundView = [[UIView alloc] initWithFrame:screenFrame];
+    [self.endBackgroundView setBackgroundColor:[UIColor greenColor]];
+    self.endBackgroundView.alpha = 0;
+    [self.view addSubview:self.endBackgroundView];
+    
+    
     
 #pragma mark - ScrollView -
     
@@ -108,8 +128,8 @@
                                        (screenFrame.size.height/2)+inset);
     
     //  Add TopView to ScrollView
-    UIView *topView = [[UIView alloc] initWithFrame:screenFrame];
-    [self.scrollViewContainer addSubview:topView];
+    UIView *selectNumberPlayersView = [[UIView alloc] initWithFrame:screenFrame];
+    [self.scrollViewContainer addSubview:selectNumberPlayersView];
     
     //  Add content on HeaderView
     // center top
@@ -119,7 +139,7 @@
     playersLabel.text = [NSString stringWithFormat:@"%d", MIN_PLAYERS];
     playersLabel.textAlignment = NSTextAlignmentCenter;
     playersLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
-    [topView addSubview:playersLabel];
+    [selectNumberPlayersView addSubview:playersLabel];
     
     // center bottom
     playerStepper = [[UIStepper alloc] init];
@@ -127,53 +147,46 @@
     [playerStepper setCenter:stepperPoint];
     [playerStepper setMinimumValue:MIN_PLAYERS];
     [playerStepper setMaximumValue:MAX_PLAYERS];
-    [topView addSubview:playerStepper];
+    [selectNumberPlayersView addSubview:playerStepper];
     
     /**/
     
-#pragma mark BottomView
+#pragma mark PlayerView
     
     //  Add BottomView to ScrollView
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.screenHeight, self.screenWidth, self.screenHeight)];
-    [self.scrollViewContainer addSubview:bottomView];
+    UIView *playerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.screenHeight, self.screenWidth, self.screenHeight)];
+    [self.scrollViewContainer addSubview:playerView];
     
-#pragma mark > BottomScrollView
-    
-    // Add ScrollView to BottomView
-    int numberBottomScrollView = 2;
-    
-    CGRect bottomScrollViewFrame = CGRectMake(0, 0, self.screenWidth, self.screenHeight);
-    CGSize bottomScrollViewSize = CGSizeMake(self.screenWidth*numberBottomScrollView, self.screenHeight);
-    UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:bottomScrollViewFrame];
-    [bottomScrollView setPagingEnabled:YES];
-    bottomScrollView.backgroundColor = [UIColor clearColor];
-    
+#pragma mark - MiddleScrollView -
 #pragma mark >> PlayerView
     
-    NSMutableArray *playerViewStack = [[NSMutableArray alloc] init];
+    self.playersListScrollView = [[PlayersListSV alloc] initWithFrame:CGRectMake(0, 0, self.screenWidth, self.screenHeight)];
+    [playerView addSubview:self.playersListScrollView];
     
-    for (int i = 0; i < numberBottomScrollView; i++) {
-        CGFloat xOrigin = i*self.screenWidth;
-        PlayerProfilView *profilView = [[PlayerProfilView alloc] initWithFrame:CGRectMake(xOrigin, 0, self.screenWidth, self.screenHeight)];
+#pragma mark EndView
     
-        [bottomScrollView addSubview:profilView];
-        [bottomScrollView setAlpha:0.3];
-        [playerViewStack addObject:profilView];
-    }
+    UIView *endView = [[UIView alloc] initWithFrame:CGRectMake(0, self.screenHeight*2, self.screenWidth, self.screenHeight)];
+    [self.scrollViewContainer addSubview:endView];
     
-    //  Refresh content ScrollView
-    [bottomScrollView setContentSize:bottomScrollViewSize];
-    [bottomView addSubview:bottomScrollView];
-    //[bottomScrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, self.screenWidth*(numberBottomScrollView-1))];
+    CGFloat buttonWidth = 120;
+    CGFloat buttonHeight = 50;
+    CGRect buttonFrame = CGRectMake((screenFrame.size.width/2)-(buttonWidth/2),
+                                   (screenFrame.size.height/2)-(buttonHeight/2),
+                                   buttonWidth,
+                                   buttonHeight);
+    UIButton *button = [[UIButton alloc] initWithFrame:buttonFrame];
+    [button setTitle:@"Let's play" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(nextView) forControlEvents:UIControlEventTouchDown];
+    [endView addSubview:button];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
     CGRect bounds = self.view.bounds;
-    
-    self.backgroundImageView.frame = bounds;
-    self.blurredImageView.frame = bounds;
+    //self.backgroundImageView.frame = bounds;
+    //self.blurredImageView.frame = bounds;
+    self.mainBackgroundView.frame = bounds;
+    self.bottomBackgroundView.frame = bounds;
 }
 
 #pragma mark - UITABLEVIEW -
@@ -224,9 +237,10 @@
     
     CGFloat position = MAX(scrollView.contentOffset.y, 0.0);
     
-    CGFloat percent = MIN(position / height, 1.0);
+    CGFloat percent = MIN(position / height, 2.0);
     
-    self.blurredImageView.alpha = percent;
+    self.bottomBackgroundView.alpha = percent;
+    self.endBackgroundView.alpha = (percent > 1 ? percent-1 : 0);
 }
 
 #pragma mark - Cell
@@ -236,6 +250,12 @@
     cell.textLabel.text = title;
     cell.detailTextLabel.text = @"";
     cell.imageView.image = nil;
+}
+
+#pragma mark - view actions -
+
+- (void)nextView {
+    NSLog(@"ok ok ok");
 }
 
 @end

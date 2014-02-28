@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4w0-ff-f5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="602"/>
+            <point key="canvasLocation" x="673" y="614"/>
         </scene>
         <!--View Controller Select Players - Nombre de joueurs-->
         <scene sceneID="58F-0l-uIY">

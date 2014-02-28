@@ -8,15 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@class PlayersListSV;
+
 @interface ViewControllerSelectPlayers : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 {
     IBOutlet UIStepper *playerStepper;
     IBOutlet UILabel *playersLabel;
 }
 
-@property (nonatomic, strong) UIImageView *backgroundImageView;
-@property (nonatomic, strong) UIImageView *blurredImageView;
+//@property (nonatomic, strong) UIImageView *backgroundImageView;
+//@property (nonatomic, strong) UIImageView *blurredImageView;
+
+@property (nonatomic, strong) UIView *mainBackgroundView;
+@property (nonatomic, strong) UIView *bottomBackgroundView;
+@property (nonatomic, strong) UIView *endBackgroundView;
+
 @property (nonatomic, strong) UIScrollView *scrollViewContainer;
+@property (nonatomic, strong) PlayersListSV *playersListScrollView;
 @property (nonatomic, assign) CGFloat screenHeight;
 @property (nonatomic, assign) CGFloat screenWidth;
 
