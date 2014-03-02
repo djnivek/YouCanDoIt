@@ -20,12 +20,11 @@
 		0E741283188C3C6000821784 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E74127F188C3C6000821784 /* button.png */; };
 		0E741284188C3C6000821784 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E741280188C3C6000821784 /* button@2x.png */; };
 		0E76036D18C0FBA100E657BE /* PlayersListSV.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E76036C18C0FBA100E657BE /* PlayersListSV.m */; };
-		0EA14B9818C352CA00BD556F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA14B9318C3523C00BD556F /* Main.storyboard */; };
+		0EA14B9D18C356F200BD556F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA14B9C18C356F200BD556F /* Main.storyboard */; };
 		0EB3B0FA1896714E0016E437 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB3B0F81896714E0016E437 /* bg.png */; };
 		0EB3B0FB1896714E0016E437 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB3B0F91896714E0016E437 /* bg@2x.png */; };
 		0EDD7E2D188590A2009F8507 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDD7E2C188590A2009F8507 /* Foundation.framework */; };
 		0EDD7E2F188590A2009F8507 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDD7E2E188590A2009F8507 /* CoreGraphics.framework */; };
-		0EDD7E37188590A2009F8507 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EDD7E35188590A2009F8507 /* InfoPlist.strings */; };
 		0EDD7E39188590A2009F8507 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E38188590A2009F8507 /* main.m */; };
 		0EDD7E3D188590A2009F8507 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E3C188590A2009F8507 /* AppDelegate.m */; };
 		0EDD7E43188590A2009F8507 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E42188590A2009F8507 /* ViewController.m */; };
@@ -68,15 +67,13 @@
 		0E741280188C3C6000821784 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		0E76036B18C0FBA100E657BE /* PlayersListSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersListSV.h; sourceTree = "<group>"; };
 		0E76036C18C0FBA100E657BE /* PlayersListSV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersListSV.m; sourceTree = "<group>"; };
-		0EA14B9718C352A500BD556F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0EA14B9A18C352F200BD556F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		0EA14B9C18C356F200BD556F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		0EB3B0F81896714E0016E437 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		0EB3B0F91896714E0016E437 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		0EDD7E29188590A2009F8507 /* jeuBoire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jeuBoire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDD7E2C188590A2009F8507 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0EDD7E2E188590A2009F8507 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0EDD7E34188590A2009F8507 /* jeuBoire-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jeuBoire-Info.plist"; sourceTree = "<group>"; };
-		0EDD7E36188590A2009F8507 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0EDD7E38188590A2009F8507 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0EDD7E3A188590A2009F8507 /* jeuBoire-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jeuBoire-Prefix.pch"; sourceTree = "<group>"; };
 		0EDD7E3B188590A2009F8507 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -208,7 +205,7 @@
 				0E74126E188C307400821784 /* entity */,
 				0EDD7E3B188590A2009F8507 /* AppDelegate.h */,
 				0EDD7E3C188590A2009F8507 /* AppDelegate.m */,
-				0EA14B9318C3523C00BD556F /* Main.storyboard */,
+				0EA14B9C18C356F200BD556F /* Main.storyboard */,
 				0EDD7E41188590A2009F8507 /* ViewController.h */,
 				0EDD7E42188590A2009F8507 /* ViewController.m */,
 				0EDD7E44188590A2009F8507 /* Images.xcassets */,
@@ -227,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				0EDD7E34188590A2009F8507 /* jeuBoire-Info.plist */,
-				0EDD7E35188590A2009F8507 /* InfoPlist.strings */,
 				0EDD7E38188590A2009F8507 /* main.m */,
 				0EDD7E3A188590A2009F8507 /* jeuBoire-Prefix.pch */,
 			);
@@ -330,13 +326,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EA14B9818C352CA00BD556F /* Main.storyboard in Resources */,
 				0EB3B0FB1896714E0016E437 /* bg@2x.png in Resources */,
 				0EDD7E45188590A2009F8507 /* Images.xcassets in Resources */,
 				0E741283188C3C6000821784 /* button.png in Resources */,
 				0EB3B0FA1896714E0016E437 /* bg.png in Resources */,
 				0E741281188C3C6000821784 /* background.png in Resources */,
-				0EDD7E37188590A2009F8507 /* InfoPlist.strings in Resources */,
+				0EA14B9D18C356F200BD556F /* Main.storyboard in Resources */,
 				0E741282188C3C6000821784 /* background@2x.png in Resources */,
 				0E741284188C3C6000821784 /* button@2x.png in Resources */,
 			);
@@ -424,24 +419,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0EA14B9318C3523C00BD556F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0EA14B9718C352A500BD556F /* Base */,
-				0EA14B9A18C352F200BD556F /* en */,
-			);
-			name = Main.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		0EDD7E35188590A2009F8507 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0EDD7E36188590A2009F8507 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		0EDD7E54188590A2009F8507 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
