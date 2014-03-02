@@ -10,7 +10,7 @@
 
 @class PlayersListSV;
 
-@interface ViewControllerSelectPlayers : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface ViewControllerSelectPlayers : UIViewController <UIScrollViewDelegate>
 {
     IBOutlet UIStepper *playerStepper;
     IBOutlet UILabel *playersLabel;

@@ -1,0 +1,36 @@
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "1k8-bM-Ngw"; */
+"1k8-bM-Ngw.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Chargement en cours ..."; ObjectID = "3nJ-LG-ibi"; */
+"3nJ-LG-ibi.text" = "Loading, please wait ...";
+
+/* Class = "IBUITextView"; text = "Voici la question et big up boy !"; ObjectID = "4zS-0K-oCN"; */
+"4zS-0K-oCN.text" = "Voici la question et big up boy !";
+
+/* Class = "IBUILabel"; text = "Question"; ObjectID = "50T-aj-KE3"; */
+"50T-aj-KE3.text" = "Question";
+
+/* Class = "IBUITextView"; text = "Voici la question et big up boy ! hfklds jkflds hfjdks fhjkdsfhjksdhfjkdhksjfhjkdshfjkdsj fhuihjfghjkf hdjsk fghjdk fhgjkh jkfghjdkbgdkdbgfjdkhjgf !"; ObjectID = "8g1-eN-LbG"; */
+"8g1-eN-LbG.text" = "Voici la question et big up boy ! hfklds jkflds hfjdks fhjkdsfhjksdhfjkdhksjfhjkdshfjkdsj fhuihjfghjkf hdjsk fghjdk fhgjkh jkfghjdkbgdkdbgfjdkhjgf !";
+
+/* Class = "IBUITextView"; text = "Voici la question et big up boy !"; ObjectID = "Eqo-tW-q71"; */
+"Eqo-tW-q71.text" = "Voici la question et big up boy !";
+
+/* Class = "IBUIButton"; normalTitle = "J'accepte !"; ObjectID = "J44-Y1-F1n"; */
+"J44-Y1-F1n.normalTitle" = "J'accepte !";
+
+/* Class = "IBUIButton"; normalTitle = "Je refuse !"; ObjectID = "Rh1-BC-yyb"; */
+"Rh1-BC-yyb.normalTitle" = "Je refuse !";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "TRL-2n-tAU"; */
+"TRL-2n-tAU.text" = "0";
+
+/* Class = "IBUINavigationItem"; title = "Kevin"; ObjectID = "UsB-Ym-pwq"; */
+"UsB-Ym-pwq.title" = "Kevin";
+
+/* Class = "IBUINavigationItem"; title = "Nombre de joueurs"; ObjectID = "svV-Lf-tNT"; */
+"svV-Lf-tNT.title" = "Nombre de joueurs";
+
+/* Class = "IBUILabel"; text = "Kévin"; ObjectID = "vsX-xV-pRD"; */
+"vsX-xV-pRD.text" = "Kévin";

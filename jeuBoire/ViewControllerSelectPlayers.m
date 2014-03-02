@@ -10,6 +10,7 @@
 #import <LBBlurredImage/UIImageView+LBBlurredImage.h>
 #import "PlayerProfilView.h"
 #import "PlayersListSV.h"
+#import "ViewControllerGame.h"
 
 @interface ViewControllerSelectPlayers ()
 
@@ -40,16 +41,15 @@
     
     double value = [sender value];
     
-    if (value > MAX_PLAYERS) {
+    if (value > MAX_PLAYERS)
         [sender setValue:MAX_PLAYERS];
-        value = [sender value];
-    }
-    if (value < MIN_PLAYERS) {
+    else if (value < MIN_PLAYERS)
         [sender setValue:MIN_PLAYERS];
-        value = [sender value];
-    }
+    
+    value = [sender value];
     
     [playersLabel setText:[NSString stringWithFormat:@"%d", (int)value]];
+    
     if ((int)value > [self.playersListScrollView nbPlayers])
         [self.playersListScrollView addPlayerView];
     else
@@ -72,15 +72,6 @@
     self.mainBackgroundView = [[UIView alloc] initWithFrame:screenFrame];
     [self.mainBackgroundView setBackgroundColor:[UIColor cyanColor]];
     [self.view addSubview:self.mainBackgroundView];
-    //self.backgroundImageView = [[UIImageView alloc] initWithImage:background];
-    //self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-    //[self.view addSubview:self.backgroundImageView];
-    
-    //self.blurredImageView = [[UIImageView alloc] init];
-    //self.blurredImageView.contentMode = UIViewContentModeScaleAspectFill;
-    //self.blurredImageView.alpha = 0;
-    //[self.blurredImageView setImageToBlur:background blurRadius:10 completionBlock:nil];
-    //[self.view addSubview:self.blurredImageView];
     
     self.bottomBackgroundView = [[UIView alloc] initWithFrame:screenFrame];
     [self.bottomBackgroundView setBackgroundColor:[UIColor redColor]];
@@ -183,50 +174,8 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     CGRect bounds = self.view.bounds;
-    //self.backgroundImageView.frame = bounds;
-    //self.blurredImageView.frame = bounds;
     self.mainBackgroundView.frame = bounds;
     self.bottomBackgroundView.frame = bounds;
-}
-
-#pragma mark - UITABLEVIEW -
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [playerStepper value]+1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"CellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (! cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.detailTextLabel.textColor = [UIColor whiteColor];
-    
-    if (indexPath.section == 0 && indexPath.row == 0)
-        [self configureHeaderCell:cell title:@"Joueurs"];
-    //else
-        
-        
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 64;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -243,19 +192,11 @@
     self.endBackgroundView.alpha = (percent > 1 ? percent-1 : 0);
 }
 
-#pragma mark - Cell
-
-- (void)configureHeaderCell:(UITableViewCell *)cell title:(NSString *)title {
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:18];
-    cell.textLabel.text = title;
-    cell.detailTextLabel.text = @"";
-    cell.imageView.image = nil;
-}
-
 #pragma mark - view actions -
 
 - (void)nextView {
-    NSLog(@"ok ok ok");
+    ViewControllerGame *nextView = [[ViewControllerGame alloc] initWithNibName:@"ViewControllerGame" bundle:nil];
+    [self.navigationController pushViewController:nextView animated:YES];
 }
 
 @end
