@@ -8,10 +8,45 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GameSession : NSObject
+@class QRSController;
+@class ViewControllerGame;
+@class AppDelegate;
+@class QRFields;
+@class GageFields;
+@class GageController;
+
+#define kAlertviewFailedResponse 1
+#define kAlertviewSucceedResponse 2
+
+@interface GameSession : NSObject <UIAlertViewDelegate>
 {
     NSMutableArray *players;
-    int round;
+    int currentPlayer;
+    
+    //  CONTROLLER PRINCIPAL
+    ViewControllerGame *mainController;
+    
+    //  QUESTION REPONSE
+    QRSController *qrController;
+
+    //  GAGE
+    GageController *ggController;
+    
+    //  Application
+    AppDelegate *application;
+    
+    int level;
+    
+    NSTimer *timerTimeToRespond;
 }
+
+- (id)initWithController:(ViewControllerGame *)_controller QRFields:(QRFields *)_qrFields GGFields:(GageFields *)_ggFields;
+
+- (BOOL)containQuestions;
+- (BOOL)containGages;
+
+- (void)newQuestion;
+
+- (void)gageIt;
 
 @end

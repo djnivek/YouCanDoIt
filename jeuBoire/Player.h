@@ -15,4 +15,10 @@
     BOOL sex; //Man = 1 & Woman = 0
 }
 
+- (id)initWithName:(NSString *)thename idPlayer:(int)theid sex:(BOOL)thesex;
+
+- (NSString *)getName;
+- (int)getId;
+- (BOOL)isMan;
+
 @end

@@ -16,9 +16,6 @@
     IBOutlet UILabel *playersLabel;
 }
 
-//@property (nonatomic, strong) UIImageView *backgroundImageView;
-//@property (nonatomic, strong) UIImageView *blurredImageView;
-
 @property (nonatomic, strong) UIView *mainBackgroundView;
 @property (nonatomic, strong) UIView *bottomBackgroundView;
 @property (nonatomic, strong) UIView *endBackgroundView;
@@ -28,6 +25,6 @@
 @property (nonatomic, assign) CGFloat screenHeight;
 @property (nonatomic, assign) CGFloat screenWidth;
 
-- (IBAction)valueChanged:(UIStepper *)sender;
+- (void)valueChanged:(UIStepper *)sender;
 
 @end

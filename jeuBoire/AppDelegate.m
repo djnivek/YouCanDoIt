@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "GameSession.h"
+#import "Gages.h"
+#import "QRLibrary.h"
 
 @implementation AppDelegate
 
@@ -17,8 +19,9 @@
     
     self.gameSession = [GameSession new];
     
-    self.questionsListe = [[NSMutableArray alloc] init];
-    self.gageListe = [[NSMutableDictionary alloc] init];
+    self.questionsListe = [[QRLibrary alloc] init];
+    self.gagesList = [[Gages alloc] init];
+    NSLog(@"AppDelegate || gagesList : %@", self.gagesList);
     
     return YES;
 }

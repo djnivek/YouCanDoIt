@@ -63,11 +63,9 @@
     [super viewDidLoad];
     
     CGRect screenFrame = [UIScreen mainScreen].bounds;
-    NSLog(@"%f", screenFrame.size.width);
+
     self.screenHeight = [UIScreen mainScreen].bounds.size.height;
     self.screenWidth = [UIScreen mainScreen].bounds.size.width;
-    
-    //UIImage *background = [UIImage imageNamed:@"bg"];
     
     self.mainBackgroundView = [[UIView alloc] initWithFrame:screenFrame];
     [self.mainBackgroundView setBackgroundColor:[UIColor cyanColor]];
@@ -195,8 +193,8 @@
 #pragma mark - view actions -
 
 - (void)nextView {
-    ViewControllerGame *nextView = [[ViewControllerGame alloc] initWithNibName:@"ViewControllerGame" bundle:nil];
-    [self.navigationController pushViewController:nextView animated:YES];
+    ViewControllerGame *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"GameControllerIdentifier"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

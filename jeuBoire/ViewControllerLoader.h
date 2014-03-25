@@ -10,6 +10,4 @@
 
 @interface ViewControllerLoader : UIViewController
 
-- (IBAction)test:(id)sender;
-
 @end

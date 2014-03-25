@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @class GameSession;
+@class Gages;
+@class QRLibrary;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,8 +18,8 @@
 
 @property (strong, nonatomic) GameSession *gameSession;
 
-@property (retain, nonatomic) NSMutableArray *questionsListe;
+@property (retain, nonatomic) QRLibrary *questionsListe;
 
-@property (strong, nonatomic) NSMutableDictionary *gageListe;
+@property (strong, nonatomic) Gages *gagesList;
 
 @end

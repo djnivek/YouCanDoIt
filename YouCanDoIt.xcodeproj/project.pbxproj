@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		08F5816E2AD8457E9BCC03A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B387A76434244628A109719D /* libPods.a */; };
 		0E027F2F188741B300A353BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E027F2E188741B200A353BF /* UIKit.framework */; };
+		0E1F684018DF3A3300746E6B /* QRLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1F683F18DF3A3300746E6B /* QRLibrary.m */; };
 		0E3EE6E818BF5C22006501D4 /* PlayerProfilView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EE6E718BF5C22006501D4 /* PlayerProfilView.m */; };
 		0E4325F5188DAC680022C7D0 /* ViewControllerLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E4325F4188DAC680022C7D0 /* ViewControllerLoader.m */; };
-		0E741271188C309700821784 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E741270188C309700821784 /* Question.m */; };
+		0E70EF5E18D7098700F7B67E /* GageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E70EF5D18D7098700F7B67E /* GageController.m */; };
+		0E72354F18E0247D009E618E /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E72354E18E0247D009E618E /* Const.m */; };
+		0E741271188C309700821784 /* QuestionReponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E741270188C309700821784 /* QuestionReponse.m */; };
 		0E741274188C30AC00821784 /* Gage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E741273188C30AC00821784 /* Gage.m */; };
 		0E741278188C316600821784 /* GameSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E741277188C316600821784 /* GameSession.m */; };
 		0E74127B188C318D00821784 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E74127A188C318D00821784 /* Player.m */; };
@@ -20,7 +23,10 @@
 		0E741283188C3C6000821784 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E74127F188C3C6000821784 /* button.png */; };
 		0E741284188C3C6000821784 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E741280188C3C6000821784 /* button@2x.png */; };
 		0E76036D18C0FBA100E657BE /* PlayersListSV.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E76036C18C0FBA100E657BE /* PlayersListSV.m */; };
+		0E9343A218D725C5008A538B /* GageFields.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9343A118D725C5008A538B /* GageFields.m */; };
+		0E9C4F5418CA31D70039F543 /* QRFields.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C4F5318CA31D70039F543 /* QRFields.m */; };
 		0EA14B9D18C356F200BD556F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA14B9C18C356F200BD556F /* Main.storyboard */; };
+		0EA240BD18CDA67100AB770B /* QRSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA240BC18CDA67100AB770B /* QRSController.m */; };
 		0EB3B0FA1896714E0016E437 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB3B0F81896714E0016E437 /* bg.png */; };
 		0EB3B0FB1896714E0016E437 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB3B0F91896714E0016E437 /* bg@2x.png */; };
 		0EDD7E2D188590A2009F8507 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDD7E2C188590A2009F8507 /* Foundation.framework */; };
@@ -35,6 +41,7 @@
 		0EDD7E58188590A2009F8507 /* jeuBoireTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E57188590A2009F8507 /* jeuBoireTests.m */; };
 		0EDD7E6318859680009F8507 /* ViewControllerSelectPlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E6218859680009F8507 /* ViewControllerSelectPlayers.m */; };
 		0EDD7E6A1885A0D6009F8507 /* ViewControllerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD7E691885A0D6009F8507 /* ViewControllerGame.m */; };
+		0EEFE79518DA44F4003F7738 /* Gages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEFE79418DA44F4003F7738 /* Gages.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,12 +56,18 @@
 
 /* Begin PBXFileReference section */
 		0E027F2E188741B200A353BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0E1F683E18DF3A3300746E6B /* QRLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRLibrary.h; sourceTree = "<group>"; };
+		0E1F683F18DF3A3300746E6B /* QRLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRLibrary.m; sourceTree = "<group>"; };
 		0E3EE6E618BF5C22006501D4 /* PlayerProfilView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerProfilView.h; sourceTree = "<group>"; };
 		0E3EE6E718BF5C22006501D4 /* PlayerProfilView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfilView.m; sourceTree = "<group>"; };
 		0E4325F3188DAC680022C7D0 /* ViewControllerLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerLoader.h; sourceTree = "<group>"; };
 		0E4325F4188DAC680022C7D0 /* ViewControllerLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLoader.m; sourceTree = "<group>"; };
-		0E74126F188C309700821784 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
-		0E741270188C309700821784 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		0E70EF5C18D7098700F7B67E /* GageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GageController.h; sourceTree = "<group>"; };
+		0E70EF5D18D7098700F7B67E /* GageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GageController.m; sourceTree = "<group>"; };
+		0E72354D18E0247D009E618E /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		0E72354E18E0247D009E618E /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
+		0E74126F188C309700821784 /* QuestionReponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionReponse.h; sourceTree = "<group>"; };
+		0E741270188C309700821784 /* QuestionReponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionReponse.m; sourceTree = "<group>"; };
 		0E741272188C30AC00821784 /* Gage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gage.h; sourceTree = "<group>"; };
 		0E741273188C30AC00821784 /* Gage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gage.m; sourceTree = "<group>"; };
 		0E741276188C316600821784 /* GameSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSession.h; sourceTree = "<group>"; };
@@ -67,29 +80,37 @@
 		0E741280188C3C6000821784 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		0E76036B18C0FBA100E657BE /* PlayersListSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersListSV.h; sourceTree = "<group>"; };
 		0E76036C18C0FBA100E657BE /* PlayersListSV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersListSV.m; sourceTree = "<group>"; };
+		0E9343A018D725C5008A538B /* GageFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GageFields.h; sourceTree = "<group>"; };
+		0E9343A118D725C5008A538B /* GageFields.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GageFields.m; sourceTree = "<group>"; };
+		0E9C4F5218CA31D70039F543 /* QRFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRFields.h; sourceTree = "<group>"; };
+		0E9C4F5318CA31D70039F543 /* QRFields.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRFields.m; sourceTree = "<group>"; };
 		0EA14B9C18C356F200BD556F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		0EA240BB18CDA67100AB770B /* QRSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRSController.h; sourceTree = "<group>"; };
+		0EA240BC18CDA67100AB770B /* QRSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRSController.m; sourceTree = "<group>"; };
 		0EB3B0F81896714E0016E437 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		0EB3B0F91896714E0016E437 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
-		0EDD7E29188590A2009F8507 /* jeuBoire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jeuBoire.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDD7E29188590A2009F8507 /* YouCanDoIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouCanDoIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDD7E2C188590A2009F8507 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0EDD7E2E188590A2009F8507 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		0EDD7E34188590A2009F8507 /* jeuBoire-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jeuBoire-Info.plist"; sourceTree = "<group>"; };
+		0EDD7E34188590A2009F8507 /* YouCanDoIt-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YouCanDoIt-Info.plist"; sourceTree = "<group>"; };
 		0EDD7E38188590A2009F8507 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0EDD7E3A188590A2009F8507 /* jeuBoire-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jeuBoire-Prefix.pch"; sourceTree = "<group>"; };
+		0EDD7E3A188590A2009F8507 /* YouCanDoIt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YouCanDoIt-Prefix.pch"; sourceTree = "<group>"; };
 		0EDD7E3B188590A2009F8507 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0EDD7E3C188590A2009F8507 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0EDD7E41188590A2009F8507 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0EDD7E42188590A2009F8507 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0EDD7E44188590A2009F8507 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		0EDD7E4A188590A2009F8507 /* jeuBoireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jeuBoireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDD7E4A188590A2009F8507 /* YouCanDoItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouCanDoItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDD7E4B188590A2009F8507 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		0EDD7E53188590A2009F8507 /* jeuBoireTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jeuBoireTests-Info.plist"; sourceTree = "<group>"; };
+		0EDD7E53188590A2009F8507 /* YouCanDoItTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YouCanDoItTests-Info.plist"; sourceTree = "<group>"; };
 		0EDD7E55188590A2009F8507 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0EDD7E57188590A2009F8507 /* jeuBoireTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jeuBoireTests.m; sourceTree = "<group>"; };
 		0EDD7E6118859680009F8507 /* ViewControllerSelectPlayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerSelectPlayers.h; sourceTree = "<group>"; };
 		0EDD7E6218859680009F8507 /* ViewControllerSelectPlayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSelectPlayers.m; sourceTree = "<group>"; };
 		0EDD7E681885A0D6009F8507 /* ViewControllerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerGame.h; sourceTree = "<group>"; };
 		0EDD7E691885A0D6009F8507 /* ViewControllerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerGame.m; sourceTree = "<group>"; };
+		0EEFE79318DA44F4003F7738 /* Gages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gages.h; sourceTree = "<group>"; };
+		0EEFE79418DA44F4003F7738 /* Gages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gages.m; sourceTree = "<group>"; };
 		1E55FD6926DB4C42B323FC7B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B387A76434244628A109719D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,23 +142,40 @@
 		0E3EE6E518BF5BEA006501D4 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				0E9C4F5218CA31D70039F543 /* QRFields.h */,
+				0E9C4F5318CA31D70039F543 /* QRFields.m */,
 				0E3EE6E618BF5C22006501D4 /* PlayerProfilView.h */,
 				0E3EE6E718BF5C22006501D4 /* PlayerProfilView.m */,
 				0E76036B18C0FBA100E657BE /* PlayersListSV.h */,
 				0E76036C18C0FBA100E657BE /* PlayersListSV.m */,
+				0E9343A018D725C5008A538B /* GageFields.h */,
+				0E9343A118D725C5008A538B /* GageFields.m */,
 			);
 			name = views;
+			sourceTree = "<group>";
+		};
+		0E72354C18E02469009E618E /* config */ = {
+			isa = PBXGroup;
+			children = (
+				0E72354D18E0247D009E618E /* Const.h */,
+				0E72354E18E0247D009E618E /* Const.m */,
+			);
+			name = config;
 			sourceTree = "<group>";
 		};
 		0E74126E188C307400821784 /* entity */ = {
 			isa = PBXGroup;
 			children = (
-				0E74126F188C309700821784 /* Question.h */,
-				0E741270188C309700821784 /* Question.m */,
+				0E74126F188C309700821784 /* QuestionReponse.h */,
+				0E741270188C309700821784 /* QuestionReponse.m */,
 				0E741272188C30AC00821784 /* Gage.h */,
 				0E741273188C30AC00821784 /* Gage.m */,
 				0E741279188C318D00821784 /* Player.h */,
 				0E74127A188C318D00821784 /* Player.m */,
+				0EEFE79318DA44F4003F7738 /* Gages.h */,
+				0EEFE79418DA44F4003F7738 /* Gages.m */,
+				0E1F683E18DF3A3300746E6B /* QRLibrary.h */,
+				0E1F683F18DF3A3300746E6B /* QRLibrary.m */,
 			);
 			name = entity;
 			sourceTree = "<group>";
@@ -164,11 +202,22 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		0EA240BA18CDA66000AB770B /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				0EA240BB18CDA67100AB770B /* QRSController.h */,
+				0EA240BC18CDA67100AB770B /* QRSController.m */,
+				0E70EF5C18D7098700F7B67E /* GageController.h */,
+				0E70EF5D18D7098700F7B67E /* GageController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
 		0EDD7E20188590A2009F8507 = {
 			isa = PBXGroup;
 			children = (
-				0EDD7E32188590A2009F8507 /* jeuBoire */,
-				0EDD7E51188590A2009F8507 /* jeuBoireTests */,
+				0EDD7E32188590A2009F8507 /* youCanDoIt */,
+				0EDD7E51188590A2009F8507 /* youCanDoItTests */,
 				0EDD7E2B188590A2009F8507 /* Frameworks */,
 				0EDD7E2A188590A2009F8507 /* Products */,
 				1E55FD6926DB4C42B323FC7B /* Pods.xcconfig */,
@@ -178,8 +227,8 @@
 		0EDD7E2A188590A2009F8507 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0EDD7E29188590A2009F8507 /* jeuBoire.app */,
-				0EDD7E4A188590A2009F8507 /* jeuBoireTests.xctest */,
+				0EDD7E29188590A2009F8507 /* YouCanDoIt.app */,
+				0EDD7E4A188590A2009F8507 /* YouCanDoItTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,9 +245,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0EDD7E32188590A2009F8507 /* jeuBoire */ = {
+		0EDD7E32188590A2009F8507 /* youCanDoIt */ = {
 			isa = PBXGroup;
 			children = (
+				0E72354C18E02469009E618E /* config */,
+				0EA240BA18CDA66000AB770B /* controller */,
 				0E3EE6E518BF5BEA006501D4 /* views */,
 				0E74127C188C3C4200821784 /* images */,
 				0E741275188C315700821784 /* game */,
@@ -217,32 +268,34 @@
 				0E4325F3188DAC680022C7D0 /* ViewControllerLoader.h */,
 				0E4325F4188DAC680022C7D0 /* ViewControllerLoader.m */,
 			);
+			name = youCanDoIt;
 			path = jeuBoire;
 			sourceTree = "<group>";
 		};
 		0EDD7E33188590A2009F8507 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0EDD7E34188590A2009F8507 /* jeuBoire-Info.plist */,
+				0EDD7E34188590A2009F8507 /* YouCanDoIt-Info.plist */,
 				0EDD7E38188590A2009F8507 /* main.m */,
-				0EDD7E3A188590A2009F8507 /* jeuBoire-Prefix.pch */,
+				0EDD7E3A188590A2009F8507 /* YouCanDoIt-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0EDD7E51188590A2009F8507 /* jeuBoireTests */ = {
+		0EDD7E51188590A2009F8507 /* youCanDoItTests */ = {
 			isa = PBXGroup;
 			children = (
 				0EDD7E57188590A2009F8507 /* jeuBoireTests.m */,
 				0EDD7E52188590A2009F8507 /* Supporting Files */,
 			);
+			name = youCanDoItTests;
 			path = jeuBoireTests;
 			sourceTree = "<group>";
 		};
 		0EDD7E52188590A2009F8507 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0EDD7E53188590A2009F8507 /* jeuBoireTests-Info.plist */,
+				0EDD7E53188590A2009F8507 /* YouCanDoItTests-Info.plist */,
 				0EDD7E54188590A2009F8507 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -251,9 +304,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0EDD7E28188590A2009F8507 /* jeuBoire */ = {
+		0EDD7E28188590A2009F8507 /* YouCanDoIt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0EDD7E5B188590A2009F8507 /* Build configuration list for PBXNativeTarget "jeuBoire" */;
+			buildConfigurationList = 0EDD7E5B188590A2009F8507 /* Build configuration list for PBXNativeTarget "YouCanDoIt" */;
 			buildPhases = (
 				FA18487B9EBF478184487161 /* Check Pods Manifest.lock */,
 				0EDD7E25188590A2009F8507 /* Sources */,
@@ -265,14 +318,14 @@
 			);
 			dependencies = (
 			);
-			name = jeuBoire;
+			name = YouCanDoIt;
 			productName = jeuBoire;
-			productReference = 0EDD7E29188590A2009F8507 /* jeuBoire.app */;
+			productReference = 0EDD7E29188590A2009F8507 /* YouCanDoIt.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0EDD7E49188590A2009F8507 /* jeuBoireTests */ = {
+		0EDD7E49188590A2009F8507 /* YouCanDoItTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0EDD7E5E188590A2009F8507 /* Build configuration list for PBXNativeTarget "jeuBoireTests" */;
+			buildConfigurationList = 0EDD7E5E188590A2009F8507 /* Build configuration list for PBXNativeTarget "YouCanDoItTests" */;
 			buildPhases = (
 				0EDD7E46188590A2009F8507 /* Sources */,
 				0EDD7E47188590A2009F8507 /* Frameworks */,
@@ -283,9 +336,9 @@
 			dependencies = (
 				0EDD7E50188590A2009F8507 /* PBXTargetDependency */,
 			);
-			name = jeuBoireTests;
+			name = YouCanDoItTests;
 			productName = jeuBoireTests;
-			productReference = 0EDD7E4A188590A2009F8507 /* jeuBoireTests.xctest */;
+			productReference = 0EDD7E4A188590A2009F8507 /* YouCanDoItTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -294,7 +347,7 @@
 		0EDD7E21188590A2009F8507 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Kévin MACHADO";
 				TargetAttributes = {
 					0EDD7E49188590A2009F8507 = {
@@ -302,7 +355,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0EDD7E24188590A2009F8507 /* Build configuration list for PBXProject "jeuBoire" */;
+			buildConfigurationList = 0EDD7E24188590A2009F8507 /* Build configuration list for PBXProject "YouCanDoIt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -315,8 +368,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0EDD7E28188590A2009F8507 /* jeuBoire */,
-				0EDD7E49188590A2009F8507 /* jeuBoireTests */,
+				0EDD7E28188590A2009F8507 /* YouCanDoIt */,
+				0EDD7E49188590A2009F8507 /* YouCanDoItTests */,
 			);
 		};
 /* End PBXProject section */
@@ -388,14 +441,21 @@
 				0EDD7E43188590A2009F8507 /* ViewController.m in Sources */,
 				0E76036D18C0FBA100E657BE /* PlayersListSV.m in Sources */,
 				0EDD7E3D188590A2009F8507 /* AppDelegate.m in Sources */,
+				0E9C4F5418CA31D70039F543 /* QRFields.m in Sources */,
 				0EDD7E6A1885A0D6009F8507 /* ViewControllerGame.m in Sources */,
+				0EA240BD18CDA67100AB770B /* QRSController.m in Sources */,
 				0E741278188C316600821784 /* GameSession.m in Sources */,
+				0E72354F18E0247D009E618E /* Const.m in Sources */,
 				0E74127B188C318D00821784 /* Player.m in Sources */,
+				0EEFE79518DA44F4003F7738 /* Gages.m in Sources */,
 				0E3EE6E818BF5C22006501D4 /* PlayerProfilView.m in Sources */,
-				0E741271188C309700821784 /* Question.m in Sources */,
+				0E741271188C309700821784 /* QuestionReponse.m in Sources */,
+				0E70EF5E18D7098700F7B67E /* GageController.m in Sources */,
 				0E741274188C30AC00821784 /* Gage.m in Sources */,
 				0E4325F5188DAC680022C7D0 /* ViewControllerLoader.m in Sources */,
+				0E1F684018DF3A3300746E6B /* QRLibrary.m in Sources */,
 				0EDD7E39188590A2009F8507 /* main.m in Sources */,
+				0E9343A218D725C5008A538B /* GageFields.m in Sources */,
 				0EDD7E6318859680009F8507 /* ViewControllerSelectPlayers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,7 +473,7 @@
 /* Begin PBXTargetDependency section */
 		0EDD7E50188590A2009F8507 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0EDD7E28188590A2009F8507 /* jeuBoire */;
+			target = 0EDD7E28188590A2009F8507 /* YouCanDoIt */;
 			targetProxy = 0EDD7E4F188590A2009F8507 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -434,7 +494,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -473,7 +532,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -513,10 +571,10 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "jeuBoire/jeuBoire-Prefix.pch";
-				INFOPLIST_FILE = "jeuBoire/jeuBoire-Info.plist";
+				GCC_PREFIX_HEADER = "jeuBoire/YouCanDoIt-Prefix.pch";
+				INFOPLIST_FILE = "jeuBoire/YouCanDoIt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = YouCanDoIt;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -533,10 +591,10 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "jeuBoire/jeuBoire-Prefix.pch";
-				INFOPLIST_FILE = "jeuBoire/jeuBoire-Info.plist";
+				GCC_PREFIX_HEADER = "jeuBoire/YouCanDoIt-Prefix.pch";
+				INFOPLIST_FILE = "jeuBoire/YouCanDoIt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = YouCanDoIt;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -545,7 +603,6 @@
 		0EDD7E5F188590A2009F8507 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/jeuBoire.app/jeuBoire";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -558,8 +615,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "jeuBoireTests/jeuBoireTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "jeuBoireTests/YouCanDoItTests-Info.plist";
+				PRODUCT_NAME = YouCanDoItTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -568,7 +625,6 @@
 		0EDD7E60188590A2009F8507 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/jeuBoire.app/jeuBoire";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -577,8 +633,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jeuBoire/jeuBoire-Prefix.pch";
-				INFOPLIST_FILE = "jeuBoireTests/jeuBoireTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "jeuBoireTests/YouCanDoItTests-Info.plist";
+				PRODUCT_NAME = YouCanDoItTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -587,7 +643,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0EDD7E24188590A2009F8507 /* Build configuration list for PBXProject "jeuBoire" */ = {
+		0EDD7E24188590A2009F8507 /* Build configuration list for PBXProject "YouCanDoIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0EDD7E59188590A2009F8507 /* Debug */,
@@ -596,7 +652,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0EDD7E5B188590A2009F8507 /* Build configuration list for PBXNativeTarget "jeuBoire" */ = {
+		0EDD7E5B188590A2009F8507 /* Build configuration list for PBXNativeTarget "YouCanDoIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0EDD7E5C188590A2009F8507 /* Debug */,
@@ -605,7 +661,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0EDD7E5E188590A2009F8507 /* Build configuration list for PBXNativeTarget "jeuBoireTests" */ = {
+		0EDD7E5E188590A2009F8507 /* Build configuration list for PBXNativeTarget "YouCanDoItTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0EDD7E5F188590A2009F8507 /* Debug */,

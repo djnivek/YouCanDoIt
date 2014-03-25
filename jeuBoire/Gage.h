@@ -8,13 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Gage : NSObject
+@interface Gage : NSObject <NSCoding>
 {
+    BOOL containLevel;
     int level;
+    int idPack;
     NSString *description;
 }
 
-- (id)initWithLevel:(int)_level desc:(NSString *)d;
+- (id)initWithDesc:(NSString *)_desc idPack:(NSString *)_idPack containsLevels:(NSString *)_contains;
+
+- (void)setLevel:(int)l;
+- (void)setIdPack:(int)idpack;
+- (void)setContainsLevel:(BOOL)contains;
+- (void)setDescription:(NSString *)desc;
+
 - (NSString *)getDescription;
+- (NSString *)getStrignIdPack;
+- (int)getLevel;
+- (BOOL)containsLevel;
 
 @end

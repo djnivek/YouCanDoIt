@@ -12,18 +12,74 @@
 
 - (id)init {
     level = 0;
+    idPack = 0;
     description = @"";
+    containLevel = FALSE;
     return self;
 }
 
-- (id)initWithLevel:(int)_level desc:(NSString *)d {
-    level = _level;
-    description = d;
+- (id)initWithDesc:(NSString *)_desc idPack:(NSString *)_idPack containsLevels:(NSString *)_contains {
+    description = _desc;
+    containLevel = [_contains boolValue];
+    idPack = [_idPack intValue];
     return self;
+}
+
+#pragma mark - Setters -
+
+- (void)setLevel:(int)l {
+    level = l;
+}
+
+- (void)setIdPack:(int)idpack {
+    idPack = idpack;
+}
+
+- (void)setContainsLevel:(BOOL)contains {
+    containLevel = contains;
+}
+
+- (void)setDescription:(NSString *)desc {
+    description = desc;
+}
+
+#pragma mark - Getters -
+
+- (int)getLevel {
+    return level;
 }
 
 - (NSString *)getDescription {
     return description;
+}
+
+- (NSString *)getStrignIdPack {
+    return [NSString stringWithFormat:@"%d", idPack];
+}
+
+- (BOOL)containsLevel {
+    return containLevel;
+}
+
+#pragma mark - NSCoding -
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    NSLog(@"Gage || encodeWithCoder");
+    [encoder encodeBool:containLevel forKey:@"containLevel"];
+    [encoder encodeInt:level forKey:@"level"];
+    [encoder encodeInt:idPack forKey:@"idPack"];
+    [encoder encodeObject:description forKey:@"description"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    NSLog(@"Gage || initWithCoder");
+    if (self = [super init]) {
+        containLevel = [decoder decodeBoolForKey:@"containLevel"];
+        level = [decoder decodeIntForKey:@"level"];
+        idPack = [decoder decodeIntForKey:@"idPack"];
+        description = [decoder decodeObjectForKey:@"description"];
+    }
+    return self;
 }
 
 @end
