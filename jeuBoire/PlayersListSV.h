@@ -19,4 +19,6 @@
 - (void)removeLastPlayerView;
 - (int)nbPlayers;
 
+- (NSArray *)players;
+
 @end

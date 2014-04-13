@@ -15,6 +15,8 @@
 #import "GageController.h"
 #import "Player.h"
 
+#define SEC_DURATION 6
+
 @implementation GameSession
 
 - (id)initWithController:(ViewControllerGame *)_controller QRFields:(QRFields *)_qrFields GGFields:(GageFields *)_ggFields
@@ -28,9 +30,6 @@
         application = [[UIApplication sharedApplication] delegate];
         qrController = [[QRSController alloc] initWithQRFields:_qrFields andQR:[application questionsListe]];
         ggController = [[GageController alloc] initWithGageFields:_ggFields andGages:[application gagesList]];
-        Player *kevin = [[Player alloc] initWithName:@"Kevin" idPlayer:1 sex:TRUE];
-        Player *violette = [[Player alloc] initWithName:@"Violette" idPlayer:2 sex:FALSE];
-        players = [[NSMutableArray alloc] initWithObjects:kevin, violette, nil];
         level = 0;
     }
     return self;
@@ -63,14 +62,14 @@
     [ggController hiddeGageLayout:TRUE];
     [self findPlayer];
     [qrController pullOtherQuestion];
-    [self setDurationToRespond:6];
+    [self setDurationToRespond:SEC_DURATION];
 }
 
 - (void)setDurationToRespond:(int)duration {
     [timerTimeToRespond invalidate];
     timerTimeToRespond = [NSTimer scheduledTimerWithTimeInterval:duration
                                      target:self
-                                   selector:@selector(newQuestion)
+                                   selector:@selector(onTimeOut)
                                    userInfo:nil
                                     repeats:NO];
     [mainController setDurationCounter:duration];
@@ -80,6 +79,8 @@
     return [qrController containQuestions];
 }
 
+#pragma mark - GAGES -
+
 - (BOOL)containGages {
     return [ggController containGages];
 }
@@ -88,11 +89,26 @@
     [ggController otherGageWithLevel:level];
 }
 
+- (void)onGageRefused {
+    [mainController popWithTitle:@"You refuse ?" message:@"Let's giving you an other one ;)" delegate:self tag:kAlertviewRefuseGage];
+}
+
+- (void)onGageAccepted {
+    [mainController popDurationAlertWith:[ggController currentGageDuration]];
+}
+
 #pragma mark - TIMER -
 
 - (void)stopAllTimers {
     [timerTimeToRespond invalidate];
     [mainController stopTimerCounter];
+}
+
+- (void)onTimeOut {
+    NSLog(@"GameSession || onTimeOut");
+    [timerTimeToRespond invalidate];
+    [mainController stopTimerCounter];
+    [mainController popWithTitle:@"Time Out" message:@"I hope next time you will respond !" delegate:self tag:kAlertviewFailedResponse];
 }
 
 #pragma mark - RESPONSE -
@@ -120,13 +136,20 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([alertView tag] == kAlertviewFailedResponse) {
-        if (buttonIndex == 0) {
+    [self onPopUpClickWithTag:[alertView tag] andIndexButton:buttonIndex];
+}
+
+- (void)onPopUpClickWithTag:(NSInteger)tag andIndexButton:(NSInteger)index {
+    if (tag == kAlertviewFailedResponse) {
+        if (index == 0) {
             [self gageIt];
         }
     }
-    else if ([alertView tag] == kAlertviewSucceedResponse) {
+    else if (tag == kAlertviewSucceedResponse) {
         [self newQuestion];
+    }
+    else if (tag == kAlertviewRefuseGage) {
+        [self gageIt];
     }
 }
 

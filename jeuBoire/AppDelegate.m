@@ -10,6 +10,7 @@
 #import "GameSession.h"
 #import "Gages.h"
 #import "QRLibrary.h"
+#import "Utils.h"
 
 @implementation AppDelegate
 
@@ -22,6 +23,8 @@
     self.questionsListe = [[QRLibrary alloc] init];
     self.gagesList = [[Gages alloc] init];
     NSLog(@"AppDelegate || gagesList : %@", self.gagesList);
+    
+    [Utils addNewSession];
     
     return YES;
 }

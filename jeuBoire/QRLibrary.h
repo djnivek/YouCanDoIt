@@ -24,5 +24,6 @@
 
 - (void)saveToLocal;
 - (void)loadFromLocal;
+- (void)loadFromWeb:(void (^)(void))completion onFailed:(void (^)(void))fail andForce:(BOOL)force;
 
 @end

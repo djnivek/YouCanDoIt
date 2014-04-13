@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "ItemPackQuestionContainerScrollView.h"
+#import "ItemPackQuestion.h"
 
 @interface ViewController ()
 
@@ -17,7 +19,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning

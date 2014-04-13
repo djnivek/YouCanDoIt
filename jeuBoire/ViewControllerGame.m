@@ -14,12 +14,22 @@
 #import "QRSController.h"
 #import "GameSession.h"
 #import "GageFields.h"
+#import <UIViewController+CWPopup.h>
+#import "PopUpDurationViewController.h"
 
 @interface ViewControllerGame ()
 
 @end
 
 @implementation ViewControllerGame
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,9 +51,16 @@
     GageFields *ggFields = [[GageFields alloc] initWithGageField:gageField andAcceptBtn:acceptButton refuseBtn:refuseButton];
     
     game = [[GameSession alloc] initWithController:self QRFields:qrFields GGFields:ggFields];
+    [game setPlayers:(NSArray *)self.passingPlayers];
     
     if ([game containQuestions] && [game containGages])
         [self startGame];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.delegate = self;
+    [self.view addGestureRecognizer:tapRecognizer];
+    self.useBlurForPopup = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,11 +73,7 @@
     [game newQuestion];
 }
 
-- (void)decSecond {
-    if ([progressBar progress] == 0)
-        [timerSecondCounter invalidate];
-    [progressBar setProgress:[progressBar progress]-0.016666];
-}
+#pragma mark - POPVIEW -
 
 - (void)popWithTitle:(NSString *)title message:(NSString *)msg delegate:(id)delegate {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
@@ -91,6 +104,25 @@
     [alert show];
 }
 
+- (void)popDurationAlertWith:(int)secDuration {
+    NSLog(@"popDurationAlertWith || duration : %d", secDuration);
+    PopUpDurationViewController *samplePopupViewController = [[PopUpDurationViewController alloc] initWithNibName:@"PopUpDurationViewController" bundle:nil];
+    [self presentPopupViewController:samplePopupViewController animated:YES completion:nil];
+    [samplePopupViewController setPopupTitle:@"Let's go !"];
+    [samplePopupViewController startWithDuration:secDuration completion:^{
+        [self dismissPopupViewControllerAnimated:YES completion:nil];
+        [game newQuestion];
+    }];
+}
+
+- (void)dismissPopup {
+    if (self.popupViewController != nil) {
+        [self dismissPopupViewControllerAnimated:YES completion:^{
+            NSLog(@"popup view dismissed");
+        }];
+    }
+}
+
 #pragma mark - TIMER -
 
 - (void)setDurationCounter:(int)duration {
@@ -100,6 +132,13 @@
                                                         selector:@selector(decSecond)
                                                         userInfo:nil
                                                          repeats:YES];
+}
+
+- (void)decSecond {
+    if ([progressBar progress] == 0) {
+        [self stopTimerCounter];
+    }
+    [progressBar setProgress:[progressBar progress]-0.016666];
 }
 
 - (void)stopTimerCounter {
@@ -119,17 +158,17 @@
 #pragma mark - IBACTION -
 
 - (IBAction)acceptGage:(id)sender {
-    [game newQuestion];
+    [game onGageAccepted];
 }
 
 - (IBAction)refuseGage:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Refus ??"
-                                                    message:@"Vous devez boire la moitié de votre verre d'un seul coup !"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:nil,
-                          nil];
-    [alert show];
+    [game onGageRefused];
+}
+
+#pragma mark - DELEGATE -
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return touch.view == self.view;
 }
 
 @end

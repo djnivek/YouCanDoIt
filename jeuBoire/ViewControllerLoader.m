@@ -35,8 +35,6 @@
     [super viewDidLoad];
     
     [TSMessage setDefaultViewController:self];
-    
-	// Do any additional setup after loading the view.
 }
 
 - (void)pushViewController {
@@ -51,63 +49,50 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    app = [[UIApplication sharedApplication] delegate];
     
     [[app questionsListe] loadFromLocal];
-    if (![[app questionsListe] containsQuestions]) {
-        
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:@"http://localhost:8888/YouCanDoIt/questions.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            NSArray *questions = [responseObject objectForKey:@"Questions"];
-            
-            for (NSDictionary* question in questions) {
-                QuestionReponse *q = [[QuestionReponse alloc] initWithQuestion:[question objectForKey:@"question"] answers:[question objectForKey:@"answers"] goodAnswer:[[[question objectForKey:@"answers"] objectForKey:@"rightAnswer"] intValue]];
-                [[app questionsListe] addQR:q];
-            }
-            [[app questionsListe] saveToLocal];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-            [TSMessage showNotificationWithTitle:@"Erreur"
-                                        subtitle:@"Un problème est survenu durant la récupération des questions"
-                                            type:TSMessageNotificationTypeError];
-        }];
-    }
-    
     [[app gagesList] loadFromLocal];
-    if (![[app gagesList] containsGages]) {
-        
-        AFHTTPRequestOperationManager *managergage = [AFHTTPRequestOperationManager manager];
-        [managergage GET:@"http://localhost:8888/YouCanDoIt/gages.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            NSDictionary *dictIdPackGage = [responseObject objectForKey:@"id_pack_gage"];
-            for (NSString *idPackGage in dictIdPackGage) {
-                NSDictionary *dictGages = [dictIdPackGage objectForKey:idPackGage];
-                
-                for (NSDictionary *g in dictGages) {
-                    Gage *gage = [[Gage alloc] init];
-                    [gage setLevel:[[g objectForKey:@"level"] intValue]];
-                    [gage setDescription:[g objectForKey:@"label"]];
-                    [gage setIdPack:[[g objectForKey:@"id_pack_gage"] intValue]];
-                    [gage setContainsLevel:[[g objectForKey:@"contains_levels"] boolValue]];
-                    
-                    [[app gagesList] addGage:gage];
-                }
-            }
-            
-            [[app gagesList] saveToLocal];
-            
-            [self pushViewController];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-            [TSMessage showNotificationWithTitle:@"Erreur"
-                                        subtitle:@"Un problème est survenu durant la récupération des gages"
-                                            type:TSMessageNotificationTypeError];
-        }];
-    }
     
-    if ([[app questionsListe] containsQuestions] && [[app gagesList] containsGages])
+    BOOL needForcedMAJ = (![[app questionsListe] containsQuestions] || ![[app gagesList] containsGages]);
+    
+    [self getQuestionsAndGagesComplete:^{
         [self pushViewController];
+    }fail:^{
+        if (needForcedMAJ)
+            [TSMessage showNotificationWithTitle:@"Problème de connexion"
+                                    subtitle:@"Un problème est survenu durant la tentative de récupération des questions du jeu, veuillez vérifier votre connexion"
+                                        type:TSMessageNotificationTypeError];
+        else
+          [self pushViewController];
+    } andForce:needForcedMAJ];
+    
+    
+    //if ([[app questionsListe] containsQuestions] && [[app gagesList] containsGages])
+      //  [self pushViewController];
+}
+
+- (void)getQuestionsAndGagesComplete:(void(^)(void))complete fail:(void(^)(void))fail andForce:(BOOL)force {
+    [[app questionsListe] loadFromWeb:^{
+        [self getGagesListeSucceed:^{
+            [complete invoke];
+        }fail:^{
+            [fail invoke];
+        } andForce:force];
+    }onFailed:^{
+        [fail invoke];
+    } andForce:force];
+}
+
+- (void)getGagesListeSucceed:(void(^)(void))complete fail:(void(^)(void))fail andForce:(BOOL)force {
+    [[app gagesList] loadFromWeb:^{
+        [complete invoke];
+    } onFailed:^{
+        [TSMessage showNotificationWithTitle:@"Erreur"
+                                    subtitle:@"Un problème est survenu durant la récupération des gages"
+                                        type:TSMessageNotificationTypeError];
+        [fail invoke];
+    } andForce:force];
 }
 
 @end

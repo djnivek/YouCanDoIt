@@ -8,6 +8,9 @@
 
 #import "Gages.h"
 #import "Gage.h"
+#import "ViewControllerLoader.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "OpenUDID.h"
 
 @implementation Gages
 
@@ -26,6 +29,7 @@
     NSMutableArray *gages = [[NSMutableArray alloc] init];
     for (Gage *g in [dictionary objectForKey:strIdPack]) {
         NSLog(@"Gages || %@", [g getDescription]);
+        NSLog(@"Gages || %d", [g getDuration]);
         if ([g getLevel] == level)
             [gages addObject:g];
     }
@@ -41,7 +45,6 @@
 }
 
 - (void)addGage:(Gage *)gage {
-    NSLog(@"----> %@", [gage getDescription]);
     NSString *idPack = [gage getStrignIdPack];
     
     if (!dictionary)
@@ -52,8 +55,8 @@
         gages = [[NSMutableArray alloc] initWithObjects:gage, nil];
     else
         [gages addObject:gage];
+    
     [dictionary setObject:gages forKey:idPack];
-    NSLog(@"add Gage || dict : %@", dictionary);
 }
 
 - (NSMutableDictionary *)dict {
@@ -70,9 +73,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"gages.txt"];
-    NSLog(@"saveToLocal %@ : dict : %@", appFile, dictionary);
-    BOOL test = [NSKeyedArchiver archiveRootObject:dictionary toFile:appFile];
-    NSLog(@"Voila -> %d", test);
+    [NSKeyedArchiver archiveRootObject:dictionary toFile:appFile];
 }
 
 - (void)loadFromLocal {
@@ -80,7 +81,56 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"gages.txt"];
     dictionary = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
-    NSLog(@"loadFromLocal : %@", dictionary);
 }
+
+- (void)loadFromWeb:(void (^)(void))completion onFailed:(void (^)(void))fail andForce:(BOOL)force {
+    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            [OpenUDID value], @"open_udid",
+                            @"1", @"operating_system",
+                            (force ? @"1" : @"0"), @"force_update",
+                            nil];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:[Const serverURL:@"gages.php"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"Operation : %@ || Params : %@ || Response : %@", operation, params, responseObject);
+        
+        NSDictionary *dictIdPackGage = [responseObject objectForKey:@"id_pack_gage"];
+        for (NSString *idPackGage in dictIdPackGage) {
+            NSDictionary *dictGages = [dictIdPackGage objectForKey:idPackGage];
+            
+            for (NSDictionary *g in dictGages) {
+                Gage *gage = [[Gage alloc] init];
+                [gage setLevel:[[g objectForKey:@"level"] intValue]];
+                [gage setDescription:[g objectForKey:@"label"]];
+                [gage setIdPack:[[g objectForKey:@"id_pack_gage"] intValue]];
+                [gage setContainsLevel:[[g objectForKey:@"contains_levels"] boolValue]];
+                [gage setDuration:[[g objectForKey:@"duration"] intValue]];
+                
+                [self addGage:gage];
+            }
+        }
+        
+        [self saveToLocal];
+        [completion invoke];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [fail invoke];
+    }];
+}
+
+/*- (void)isUpdateRequired:(void(^)(BOOL))required {
+    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"askfor", @"is_update_required",
+                            [OpenUDID value], @"open_udid",
+                            @"1", @"operating_system",
+                            nil];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:[Const serverURL:@"gages.php"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        required([responseObject boolForKey:@"id_pack_gage"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        required(NO);
+    }];
+}*/
 
 @end

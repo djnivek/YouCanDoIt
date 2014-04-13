@@ -11,6 +11,8 @@
 #import "PlayerProfilView.h"
 #import "PlayersListSV.h"
 #import "ViewControllerGame.h"
+#import "GameSession.h"
+#import "ChoosePackAndStarGameView.h"
 
 @interface ViewControllerSelectPlayers ()
 
@@ -154,19 +156,9 @@
     
 #pragma mark EndView
     
-    UIView *endView = [[UIView alloc] initWithFrame:CGRectMake(0, self.screenHeight*2, self.screenWidth, self.screenHeight)];
+    ChoosePackAndStarGameView *endView = [[ChoosePackAndStarGameView alloc]
+                                          initWithFrame: CGRectMake(0, self.screenHeight*2, self.screenWidth, self.screenHeight)];
     [self.scrollViewContainer addSubview:endView];
-    
-    CGFloat buttonWidth = 120;
-    CGFloat buttonHeight = 50;
-    CGRect buttonFrame = CGRectMake((screenFrame.size.width/2)-(buttonWidth/2),
-                                   (screenFrame.size.height/2)-(buttonHeight/2),
-                                   buttonWidth,
-                                   buttonHeight);
-    UIButton *button = [[UIButton alloc] initWithFrame:buttonFrame];
-    [button setTitle:@"Let's play" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(nextView) forControlEvents:UIControlEventTouchDown];
-    [endView addSubview:button];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -192,8 +184,9 @@
 
 #pragma mark - view actions -
 
-- (void)nextView {
+- (void)launchGameViewController {
     ViewControllerGame *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"GameControllerIdentifier"];
+    controller.passingPlayers = [[NSMutableArray alloc] initWithArray:[self.playersListScrollView players]];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

@@ -11,7 +11,7 @@
 @class GameSession;
 @class QuestionReponse;
 
-@interface ViewControllerGame : UIViewController <UIAlertViewDelegate>
+@interface ViewControllerGame : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate>
 {
     IBOutlet UILabel *userNameLabel;
 
@@ -42,9 +42,12 @@
     IBOutlet UIProgressView *progressBar;
 }
 
+@property (nonatomic, retain) NSMutableArray *passingPlayers;
+
 - (void)popWithTitle:(NSString *)title message:(NSString *)msg delegate:(id)delegate;
 - (void)popWithTitle:(NSString *)title message:(NSString *)msg delegate:(id)delegate tag:(int)tag;
 - (void)popAlertViewUserLooseQuestionWithDelegate:(id)delegate tag:(int)tag;
+- (void)popDurationAlertWith:(int)secDuration;
 
 - (void)setDurationCounter:(int)duration;
 - (void)setUsernameLabel:(NSString *)username;

@@ -15,6 +15,7 @@
     idPack = 0;
     description = @"";
     containLevel = FALSE;
+    duration = 0;
     return self;
 }
 
@@ -29,6 +30,10 @@
 
 - (void)setLevel:(int)l {
     level = l;
+}
+
+- (void)setDuration:(int)d {
+    duration = d;
 }
 
 - (void)setIdPack:(int)idpack {
@@ -47,6 +52,10 @@
 
 - (int)getLevel {
     return level;
+}
+
+- (int)getDuration {
+    return duration;
 }
 
 - (NSString *)getDescription {
@@ -69,6 +78,7 @@
     [encoder encodeInt:level forKey:@"level"];
     [encoder encodeInt:idPack forKey:@"idPack"];
     [encoder encodeObject:description forKey:@"description"];
+    [encoder encodeInt:duration forKey:@"duration"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -78,6 +88,7 @@
         level = [decoder decodeIntForKey:@"level"];
         idPack = [decoder decodeIntForKey:@"idPack"];
         description = [decoder decodeObjectForKey:@"description"];
+        duration = [decoder decodeIntForKey:@"duration"];
     }
     return self;
 }

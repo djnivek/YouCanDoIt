@@ -220,7 +220,7 @@
         <!--View Controller-->
         <scene sceneID="roB-TI-VwL">
             <objects>
-                <viewController id="d52-S3-iuB" sceneMemberID="viewController">
+                <viewController id="d52-S3-iuB" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EAS-O4-Mba"/>
                         <viewControllerLayoutGuide type="bottom" id="Gls-bW-bjn"/>

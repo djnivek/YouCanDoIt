@@ -49,10 +49,15 @@
     int r = arc4random() % [array count];
     
     if ([array count]) {
-        return (Gage *)[array objectAtIndex:r];
+        currentGage = (Gage *)[array objectAtIndex:r];
+        return currentGage;
     }
     
     return NULL;
+}
+
+- (int)currentGageDuration {
+    return [currentGage getDuration];
 }
 
 @end

@@ -43,4 +43,8 @@
 
 - (void)loadFromLocal;
 
+- (void)loadFromWeb:(void (^)(void))completion onFailed:(void (^)(void))fail andForce:(BOOL)force;
+
+//- (void)isUpdateRequired:(void(^)(BOOL))required;
+ 
 @end

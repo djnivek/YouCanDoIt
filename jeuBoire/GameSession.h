@@ -17,10 +17,12 @@
 
 #define kAlertviewFailedResponse 1
 #define kAlertviewSucceedResponse 2
+#define kAlertviewRefuseGage 3
 
 @interface GameSession : NSObject <UIAlertViewDelegate>
 {
     NSMutableArray *players;
+    
     int currentPlayer;
     
     //  CONTROLLER PRINCIPAL
@@ -41,6 +43,7 @@
 }
 
 - (id)initWithController:(ViewControllerGame *)_controller QRFields:(QRFields *)_qrFields GGFields:(GageFields *)_ggFields;
+- (void)setPlayers:(NSArray *)_players;
 
 - (BOOL)containQuestions;
 - (BOOL)containGages;
@@ -48,5 +51,8 @@
 - (void)newQuestion;
 
 - (void)gageIt;
+- (void)onGageAccepted;
+- (void)onGageRefused;
+- (void)onTimeOut;
 
 @end

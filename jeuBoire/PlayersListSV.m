@@ -8,6 +8,7 @@
 
 #import "PlayersListSV.h"
 #import "PlayerProfilView.h"
+#import "Player.h"
 
 @implementation PlayersListSV
 
@@ -26,6 +27,8 @@
     return self;
 }
 
+#pragma mark - ADD -
+
 - (void)addPlayerView {
     CGFloat xOrigin = [playerViewStack count]*screenWidth;
     PlayerProfilView *profilView = [[PlayerProfilView alloc] initWithFrame:CGRectMake(xOrigin, 0, screenWidth, screenHeight)];
@@ -34,6 +37,8 @@
     [playerViewStack addObject:profilView];
     [self setContentSize:[self actualSize]];
 }
+
+#pragma mark - REMOVE -
 
 - (void)removeLastPlayerView {
     [[playerViewStack lastObject] removeFromSuperview];
@@ -47,6 +52,16 @@
 
 - (int)nbPlayers {
     return (int)[playerViewStack count];
+}
+
+- (NSArray *)players {
+    NSMutableArray *players = [[NSMutableArray alloc] init];
+    for (PlayerProfilView *pfView in playerViewStack) {
+        
+        Player *p = [[Player alloc] initWithName:pfView.playerName.text idPlayer:[pfView.playerNum.text intValue] sex:pfView.playerSex.selected];
+        [players addObject:p];
+    }
+    return players;
 }
 
 @end

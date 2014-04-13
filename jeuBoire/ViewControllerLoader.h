@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class AppDelegate;
+
 @interface ViewControllerLoader : UIViewController
+{
+    AppDelegate *app;
+}
 
 @end

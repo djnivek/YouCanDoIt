@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-UIKIT_EXTERN NSString *const GAMESESSION_WrongResponse;
-UIKIT_EXTERN NSString *const GAMESESSION_GoodResponse;
+UIKIT_EXTERN NSString* const GAMESESSION_WrongResponse;
+UIKIT_EXTERN NSString* const GAMESESSION_GoodResponse;
+NSString* const SERVER;
+NSString* const PORT;
 
 @interface Const : NSObject
+
++ (NSString *)serverURL:(NSString *)theNamespace;
 
 @end

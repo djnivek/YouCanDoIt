@@ -28,4 +28,6 @@
 
 - (void)otherGageWithLevel:(int)level;
 
+- (int)currentGageDuration;
+
 @end

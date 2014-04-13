@@ -26,5 +26,6 @@
 @property (nonatomic, assign) CGFloat screenWidth;
 
 - (void)valueChanged:(UIStepper *)sender;
+- (void)launchGameViewController;
 
 @end

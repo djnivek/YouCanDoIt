@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-CWPopup.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-HexColors.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2983DC7E09B24A4F82923BD3</key>
+		<key>03EF100FECC24D5BBD5197AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3DC2A8BCE12B4E15B1B56C69</key>
+		<key>41A1808F6D3F45BC9D710F57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A93BB7BBC6D4C1FB3F577A0</key>
+		<key>B3D3789094614AA1B4BD5FC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4ACACF27E7DA4B879571E86C</key>
+		<key>BD679906508B481B8B4B5836</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9BF0C550D40A46B2A678058B</key>
+		<key>D79AB51643A5404FAE38D416</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA29EF7B812F4972A1AF753D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
