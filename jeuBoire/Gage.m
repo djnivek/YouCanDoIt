@@ -74,9 +74,9 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     NSLog(@"Gage || encodeWithCoder");
-    [encoder encodeBool:containLevel forKey:@"containLevel"];
+    [encoder encodeBool:containLevel forKey:@"contain_level"];
     [encoder encodeInt:level forKey:@"level"];
-    [encoder encodeInt:idPack forKey:@"idPack"];
+    [encoder encodeInt:idPack forKey:@"id_pack"];
     [encoder encodeObject:description forKey:@"description"];
     [encoder encodeInt:duration forKey:@"duration"];
 }
@@ -84,9 +84,9 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     NSLog(@"Gage || initWithCoder");
     if (self = [super init]) {
-        containLevel = [decoder decodeBoolForKey:@"containLevel"];
+        containLevel = [decoder decodeBoolForKey:@"contain_level"];
         level = [decoder decodeIntForKey:@"level"];
-        idPack = [decoder decodeIntForKey:@"idPack"];
+        idPack = [decoder decodeIntForKey:@"id_pack"];
         description = [decoder decodeObjectForKey:@"description"];
         duration = [decoder decodeIntForKey:@"duration"];
     }

@@ -1,5 +1,5 @@
 //
-//  PackQuestion.h
+//  PackQR.h
 //  YouCanDoIt
 //
 //  Created by Kévin MACHADO on 13/04/2014.
@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PackQuestion : NSObject
+@class QuestionReponse;
+
+@interface PackQR : NSObject
 {
-    int packQuestion;
+    int idPackQR;
     NSString *titre;
     NSString *description;
     NSMutableArray *qrList;
 }
+
+- (id)initWithIdPack:(int)idPack;
+
+- (void)addQR:(QuestionReponse *)qr;
+- (NSArray *)qrs;
 
 @end

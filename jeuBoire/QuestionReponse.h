@@ -12,6 +12,7 @@
 {
     NSString *question;
     NSArray *answers;
+    int idPack;
     int rightAnswer;
 }
 
@@ -20,11 +21,13 @@
 
 /**     GET     **/
 - (NSString *)getQuestion;
+- (NSString *)getStrignIdPack;
 - (NSArray *)getAnswers;
 - (int)getRightAnswer;
 
 /**     SET     **/
 - (void)setQuestion:(NSString *)_question;
+- (void)setIdPack:(int)idpack;
 - (void)setAnswers:(NSArray *)_answers;
 - (void)setRightAnswer:(int)_right;
 

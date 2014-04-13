@@ -12,7 +12,7 @@
 
 @interface QRLibrary : NSObject
 {
-    NSMutableArray *questionsListe;
+    NSMutableDictionary *dictionary;
 }
 
 - (void)addQR:(QuestionReponse *)qr;
@@ -20,7 +20,7 @@
 - (int)nbOfQuestion;
 - (BOOL)containsQuestions;
 
-- (QuestionReponse *)getQrAtIndex:(int)i;
+- (QuestionReponse *)getQrWithIdPack:(int)idPack;
 
 - (void)saveToLocal;
 - (void)loadFromLocal;

@@ -35,8 +35,6 @@
 
 - (void)addGage:(Gage *)gage;
 
-- (NSMutableDictionary *)dict;
-
 - (BOOL)containsGages;
 
 - (void)saveToLocal;

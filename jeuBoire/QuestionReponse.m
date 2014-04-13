@@ -44,6 +44,10 @@
     return question;
 }
 
+- (NSString *)getStrignIdPack {
+    return [NSString stringWithFormat:@"%d", idPack];
+}
+
 - (NSArray *)getAnswers {
     return answers;
 }
@@ -66,13 +70,18 @@
     rightAnswer = _right;
 }
 
+- (void)setIdPack:(int)idpack {
+    idPack = idpack;
+}
+
 #pragma mark - SAVE/LOAD -
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     NSLog(@"QuestionReponse || encodeWithCoder");
     [aCoder encodeObject:question forKey:@"question"];
     [aCoder encodeObject:answers forKey:@"answers"];
-    [aCoder encodeInt:rightAnswer forKey:@"rightAnswer"];
+    [aCoder encodeInt:rightAnswer forKey:@"right_answer"];
+    [aCoder encodeInt:idPack forKey:@"id_pack"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -80,7 +89,8 @@
     if (self = [super init]) {
         question = [aDecoder decodeObjectForKey:@"question"];
         answers = [aDecoder decodeObjectForKey:@"answers"];
-        rightAnswer = [aDecoder decodeIntForKey:@"rightAnswer"];
+        rightAnswer = [aDecoder decodeIntForKey:@"right_answer"];
+        idPack = [aDecoder decodeIntForKey:@"id_pack"];
     }
     return self;
 }

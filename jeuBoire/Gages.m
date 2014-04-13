@@ -11,6 +11,7 @@
 #import "ViewControllerLoader.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import "OpenUDID.h"
+#import "PackGages.h"
 
 @implementation Gages
 
@@ -26,18 +27,14 @@
 
 - (NSArray *)getForIdPack:(int)idPack level:(int)level {
     NSString *strIdPack = [NSString stringWithFormat:@"%d",idPack];
-    NSMutableArray *gages = [[NSMutableArray alloc] init];
-    for (Gage *g in [dictionary objectForKey:strIdPack]) {
-        NSLog(@"Gages || %@", [g getDescription]);
-        NSLog(@"Gages || %d", [g getDuration]);
-        if ([g getLevel] == level)
-            [gages addObject:g];
-    }
-    return (NSArray *)gages;
+    //NSMutableArray *gages = [[NSMutableArray alloc] init];
+    PackGages *pckGages = [dictionary objectForKey:strIdPack];
+    return [pckGages gagesWithLevel:level];
 }
 
 - (NSArray *)getForIdPack:(int)idPack {
-    return [dictionary objectForKey:[NSString stringWithFormat:@"%d", idPack]];
+    PackGages *pG = (PackGages *)[dictionary objectForKey:[NSString stringWithFormat:@"%d", idPack]];
+    return [pG gages];
 }
 
 - (NSArray *)getIdPackContained {
@@ -50,17 +47,13 @@
     if (!dictionary)
         dictionary = [[NSMutableDictionary alloc] init];
     
-    NSMutableArray *gages = (NSMutableArray *)[dictionary objectForKey:idPack];
-    if (!gages)
-        gages = [[NSMutableArray alloc] initWithObjects:gage, nil];
+    PackGages *packGages = (PackGages *)[dictionary objectForKey:idPack];
+    if (!packGages)
+        packGages = [[PackGages alloc] initWithIdPack:[idPack intValue]];
     else
-        [gages addObject:gage];
+        [packGages addGage:gage];
     
-    [dictionary setObject:gages forKey:idPack];
-}
-
-- (NSMutableDictionary *)dict {
-    return dictionary;
+    //[dictionary setObject:gages forKey:idPack];
 }
 
 - (BOOL)containsGages {

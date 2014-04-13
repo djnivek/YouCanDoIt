@@ -28,7 +28,8 @@
 		0E741284188C3C6000821784 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E741280188C3C6000821784 /* button@2x.png */; };
 		0E76036D18C0FBA100E657BE /* PlayersListSV.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E76036C18C0FBA100E657BE /* PlayersListSV.m */; };
 		0E769F2C18F848680022064D /* ChoosePackAndStarGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E769F2B18F848680022064D /* ChoosePackAndStarGameView.m */; };
-		0E7888DD18FAD2B400FB0CCC /* PackQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7888DC18FAD2B400FB0CCC /* PackQuestion.m */; };
+		0E7888DD18FAD2B400FB0CCC /* PackGages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7888DC18FAD2B400FB0CCC /* PackGages.m */; };
+		0E7888E018FADE1500FB0CCC /* PackQR.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7888DF18FADE1500FB0CCC /* PackQR.m */; };
 		0E9343A218D725C5008A538B /* GageFields.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9343A118D725C5008A538B /* GageFields.m */; };
 		0E9C4F5418CA31D70039F543 /* QRFields.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C4F5318CA31D70039F543 /* QRFields.m */; };
 		0EA14B9D18C356F200BD556F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA14B9C18C356F200BD556F /* Main.storyboard */; };
@@ -100,8 +101,10 @@
 		0E76036C18C0FBA100E657BE /* PlayersListSV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersListSV.m; sourceTree = "<group>"; };
 		0E769F2A18F848680022064D /* ChoosePackAndStarGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePackAndStarGameView.h; sourceTree = "<group>"; };
 		0E769F2B18F848680022064D /* ChoosePackAndStarGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePackAndStarGameView.m; sourceTree = "<group>"; };
-		0E7888DB18FAD2B400FB0CCC /* PackQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackQuestion.h; sourceTree = "<group>"; };
-		0E7888DC18FAD2B400FB0CCC /* PackQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackQuestion.m; sourceTree = "<group>"; };
+		0E7888DB18FAD2B400FB0CCC /* PackGages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackGages.h; sourceTree = "<group>"; };
+		0E7888DC18FAD2B400FB0CCC /* PackGages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackGages.m; sourceTree = "<group>"; };
+		0E7888DE18FADE1500FB0CCC /* PackQR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackQR.h; sourceTree = "<group>"; };
+		0E7888DF18FADE1500FB0CCC /* PackQR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackQR.m; sourceTree = "<group>"; };
 		0E9343A018D725C5008A538B /* GageFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GageFields.h; sourceTree = "<group>"; };
 		0E9343A118D725C5008A538B /* GageFields.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GageFields.m; sourceTree = "<group>"; };
 		0E9C4F5218CA31D70039F543 /* QRFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRFields.h; sourceTree = "<group>"; };
@@ -254,8 +257,10 @@
 				0E741273188C30AC00821784 /* Gage.m */,
 				0E741279188C318D00821784 /* Player.h */,
 				0E74127A188C318D00821784 /* Player.m */,
-				0E7888DB18FAD2B400FB0CCC /* PackQuestion.h */,
-				0E7888DC18FAD2B400FB0CCC /* PackQuestion.m */,
+				0E7888DB18FAD2B400FB0CCC /* PackGages.h */,
+				0E7888DC18FAD2B400FB0CCC /* PackGages.m */,
+				0E7888DE18FADE1500FB0CCC /* PackQR.h */,
+				0E7888DF18FADE1500FB0CCC /* PackQR.m */,
 			);
 			name = entity;
 			sourceTree = "<group>";
@@ -554,13 +559,14 @@
 				0E76036D18C0FBA100E657BE /* PlayersListSV.m in Sources */,
 				0EDD7E3D188590A2009F8507 /* AppDelegate.m in Sources */,
 				0E9C4F5418CA31D70039F543 /* QRFields.m in Sources */,
-				0E7888DD18FAD2B400FB0CCC /* PackQuestion.m in Sources */,
+				0E7888DD18FAD2B400FB0CCC /* PackGages.m in Sources */,
 				0ED19F0018F3F88E00F1F7CF /* ItemPackQuestion.m in Sources */,
 				0EDD7E6A1885A0D6009F8507 /* ViewControllerGame.m in Sources */,
 				0EA79E9C18EAAED600AEE11C /* OpenUDID.m in Sources */,
 				0EAC6BF418E436AE0077895C /* EVCircularProgressView.m in Sources */,
 				0EA240BD18CDA67100AB770B /* QRSController.m in Sources */,
 				0E741278188C316600821784 /* GameSession.m in Sources */,
+				0E7888E018FADE1500FB0CCC /* PackQR.m in Sources */,
 				0E72354F18E0247D009E618E /* Const.m in Sources */,
 				0ED19EFD18F3F48500F1F7CF /* ItemPackQuestionView.m in Sources */,
 				0E74127B188C318D00821784 /* Player.m in Sources */,
