@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Kévin MACHADO. All rights reserved.
 //
 
-#import "ItemPackQuestionContainerScrollView.h"
-#import "ItemPackQuestionView.h"
-#import "ItemPackQuestion.h"
+#import "ItemPackGagesContainerScrollView.h"
+#import "ItemPackGagesView.h"
+#import "ItemPackGages.h"
 
-@implementation ItemPackQuestionContainerScrollView
+@implementation ItemPackGagesContainerScrollView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -24,9 +24,9 @@
     return self;
 }
 
-- (void)addItemView:(ItemPackQuestion *)item {
+- (void)addItemView:(ItemPackGages *)item {
     CGFloat xOrigin = frameEdge*[itemViewStack count];
-    ItemPackQuestionView *pckView = [[ItemPackQuestionView alloc] initWithFrame:CGRectMake(xOrigin, 0, frameEdge, frameEdge)];
+    ItemPackGagesView *pckView = [[ItemPackGagesView alloc] initWithFrame:CGRectMake(xOrigin, 0, frameEdge, frameEdge)];
     [self addSubview:pckView];
     [pckView setItem:item];
     [itemViewStack addObject:pckView];
@@ -39,11 +39,9 @@
 
 - (NSArray *)selectedItems {
     NSMutableArray *selectedItems = [[NSMutableArray alloc] init];
-    NSLog(@"-----> TRY --<");
-    for (ItemPackQuestionView *iPQView in itemViewStack) {
-        NSLog(@"-----> TRY --> ItemPackQuestionView || %@", iPQView);
-        if ([iPQView isSelected]) {
-            [selectedItems addObject:iPQView];
+    for (ItemPackGagesView *iPGView in itemViewStack) {
+        if ([iPGView isSelected]) {
+            [selectedItems addObject:iPGView];
         }
     }
     return (NSArray *)selectedItems;

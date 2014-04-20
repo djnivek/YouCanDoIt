@@ -21,7 +21,9 @@
 - (id)initWithIdPack:(int)idPack;
 
 - (void)addGage:(Gage *)g;
+
 - (NSArray *)gagesWithLevel:(int)level;
 - (NSArray *)gages;
+- (NSString *)title;
 
 @end

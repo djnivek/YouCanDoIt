@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class PlayersListSV;
+@class ChoosePackAndStarGameView;
 
 @interface ViewControllerSelectPlayers : UIViewController <UIScrollViewDelegate>
 {
     IBOutlet UIStepper *playerStepper;
     IBOutlet UILabel *playersLabel;
+    
+    ChoosePackAndStarGameView *chooseStarView;
 }
 
 @property (nonatomic, strong) UIView *mainBackgroundView;

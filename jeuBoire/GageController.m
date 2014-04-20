@@ -22,6 +22,10 @@
     return self;
 }
 
+- (void)setPackGageAvalaible:(NSArray *)_packGage {
+    packGageAvalaible = _packGage;
+}
+
 - (void)hiddeGageLayout:(BOOL)hiddeIt {
     [gageFields hiddeGageLayout:hiddeIt];
 }
@@ -42,10 +46,8 @@
     //L'utilisateur choisi le nom qui sera toujours bridé et SI currentplayer.name = packplus.namebride ALORS SI gage = gagebridés ALORS
     //nouveau tirage
     
-    int idPackWanted = 1;
-    NSLog(@"GageController || %d - %d", idPackWanted, level);
-    NSArray *array = [gagesLibrary getForIdPack:idPackWanted level:level];
-    NSLog(@"GageController || %d", [array count]);
+    int idPackRandom = arc4random() % [packGageAvalaible count];
+    NSArray *array = [gagesLibrary getForIdPack:idPackRandom level:level];
     int r = arc4random() % [array count];
     
     if ([array count]) {

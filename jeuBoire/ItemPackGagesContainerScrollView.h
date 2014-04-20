@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class ItemPackQuestion;
+@class ItemPackGages;
 
-@interface ItemPackQuestionContainerScrollView : UIScrollView
+@interface ItemPackGagesContainerScrollView : UIScrollView
 {
     NSMutableArray *itemViewStack;
     CGFloat frameEdge;
 }
 
-- (void)addItemView:(ItemPackQuestion *)item;
+- (void)addItemView:(ItemPackGages *)item;
 - (NSArray *)selectedItems;
 
 @end

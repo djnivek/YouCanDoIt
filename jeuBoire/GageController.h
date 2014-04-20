@@ -16,18 +16,18 @@
 {
     GageFields *gageFields;
     Gages *gagesLibrary;
-    
     Gage *currentGage;
+    
+    NSArray *packGageAvalaible;
 }
 
 - (id)initWithGageFields:(GageFields *)_fields andGages:(Gages *)_gages;
+- (void)setPackGageAvalaible:(NSArray *)_packGage;
 
 - (void)hiddeGageLayout:(BOOL)hiddeIt;
 
 - (BOOL)containGages;
-
 - (void)otherGageWithLevel:(int)level;
-
 - (int)currentGageDuration;
 
 @end

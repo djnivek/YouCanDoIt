@@ -10,16 +10,20 @@
 
 @class ViewControllerSelectPlayers;
 @class ItemPackQuestionContainerScrollView;
+@class ItemPackGagesContainerScrollView;
 
 @interface ChoosePackAndStarGameView : UIView
 {
     ViewControllerSelectPlayers *delegate;
     
     //  PackQuestions
-    ItemPackQuestionContainerScrollView *packQScrollView;
+    ItemPackQuestionContainerScrollView *packQRScrollView;
     
     //  PackGages
-//    ItemPackQuestionContainerScrollView *packQScrollView;
+    ItemPackGagesContainerScrollView *packGScrollView;
 }
+
+//  Dictionnaire des packs selectionnés - Rangé par clées ("questions" - "gages")
+- (NSDictionary *)selectedItems;
 
 @end

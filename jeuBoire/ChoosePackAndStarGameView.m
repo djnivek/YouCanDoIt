@@ -8,8 +8,21 @@
 
 #import "ChoosePackAndStarGameView.h"
 #import "ViewControllerSelectPlayers.h"
+
 #import "ItemPackQuestionContainerScrollView.h"
+#import "ItemPackGagesContainerScrollView.h"
+
 #import "ItemPackQuestion.h"
+#import "ItemPackGages.h"
+
+#import "AppDelegate.h"
+
+#import "Gages.h"
+#import "PackGages.h"
+
+#import "QRLibrary.h"
+#import "PackQRs.h"
+
 @implementation ChoosePackAndStarGameView
 
 - (id)initWithFrame:(CGRect)frame
@@ -18,31 +31,34 @@
     if (self) {
         // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
-        packQScrollView = [[ItemPackQuestionContainerScrollView alloc] init];
         
-        ItemPackQuestion *pQ1 = [[ItemPackQuestion alloc] init];
-        [pQ1 setTitle:@"Sport"];
-        ItemPackQuestion *pQ2 = [[ItemPackQuestion alloc] init];
-        [pQ2 setTitle:@"Cars"];
-        ItemPackQuestion *pQ3 = [[ItemPackQuestion alloc] init];
-        [pQ3 setTitle:@"IT"];
-        ItemPackQuestion *pQ4 = [[ItemPackQuestion alloc] init];
-        [pQ4 setTitle:@"Movies"];
-        ItemPackQuestion *pQ5 = [[ItemPackQuestion alloc] init];
-        [pQ5 setTitle:@"Music"];
+        CGRect frameQRScrollView = CGRectMake(0, 50, self.frame.size.width, 200);
+        packQRScrollView = [[ItemPackQuestionContainerScrollView alloc] initWithFrame:frameQRScrollView];
+        [self addSubview:packQRScrollView];
         
-        CGRect frame = CGRectMake(0, 50, self.frame.size.width, 200);
-        ItemPackQuestionContainerScrollView *scrollView = [[ItemPackQuestionContainerScrollView alloc] initWithFrame:frame];
-        [self addSubview:scrollView];
-        [scrollView addItemView:pQ1];
-        [scrollView addItemView:pQ2];
-        [scrollView addItemView:pQ3];
-        [scrollView addItemView:pQ4];
-        [scrollView addItemView:pQ5];
+        NSArray *packQuestionsContained = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] questionsListe] getPackContained];
+        NSLog(@"ChoosePackAndStarGameView | packQuestionsContained = %@", packQuestionsContained);
+        for (PackQRs *pQR in packQuestionsContained) {
+            ItemPackQuestion *pQ = [[ItemPackQuestion alloc] init];
+            [pQ setTitle:[pQR title]];
+            [packQRScrollView addItemView:pQ];
+        }
+        
+        CGRect frameGSScrollView = CGRectMake(0, self.frame.size.height-50-(200/2), self.frame.size.width, 200);
+        packGScrollView = [[ItemPackGagesContainerScrollView alloc] initWithFrame:frameGSScrollView];
+        [self addSubview:packGScrollView];
+        
+        NSArray *packGagesContained = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] gagesList] getPackContained];
+        NSLog(@"ChoosePackAndStarGameView | packGagesContained = %@", packGagesContained);
+        for (PackGages *pG in packGagesContained) {
+            ItemPackGages *ipG = [[ItemPackGages alloc] init];
+            [ipG setTitle:[pG title]];
+            [packGScrollView addItemView:ipG];
+        }
+        
     }
     return self;
 }
-
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -59,6 +75,17 @@
     [button setTitle:@"Let's play" forState:UIControlStateNormal];
     [button addTarget:delegate action:@selector(launchGameViewController) forControlEvents:UIControlEventTouchDown];
     [self addSubview:button];
+}
+
+- (NSDictionary *)selectedItems {
+    NSLog(@"------> TRY -> %@", [packQRScrollView selectedItems]);
+    NSLog(@"------> TRY -> %@", [packGScrollView selectedItems]);
+    
+    
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            [packQRScrollView selectedItems], @"pack_questions",
+            [packGScrollView selectedItems], @"pack_gages",
+            nil];
 }
 
 @end

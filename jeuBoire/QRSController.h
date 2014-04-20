@@ -20,9 +20,13 @@
     QuestionReponse *currentQuestionReponse;
     
     int currentQuestion;
+    
+    NSArray *packGageAvalaible;
 }
 
 - (id)initWithQRFields:(QRFields *)fields andQR:(QRLibrary *)qrs;
+- (void)setPackQuestionAvalaible:(NSArray *)_packQuestion;
+
 - (void)pullOtherQuestion;
 - (BOOL)containQuestions;
 

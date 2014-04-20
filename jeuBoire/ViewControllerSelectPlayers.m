@@ -156,9 +156,9 @@
     
 #pragma mark EndView
     
-    ChoosePackAndStarGameView *endView = [[ChoosePackAndStarGameView alloc]
+    chooseStarView = [[ChoosePackAndStarGameView alloc]
                                           initWithFrame: CGRectMake(0, self.screenHeight*2, self.screenWidth, self.screenHeight)];
-    [self.scrollViewContainer addSubview:endView];
+    [self.scrollViewContainer addSubview:chooseStarView];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -173,7 +173,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
     CGFloat height = scrollView.bounds.size.height;
-    
+
     CGFloat position = MAX(scrollView.contentOffset.y, 0.0);
     
     CGFloat percent = MIN(position / height, 2.0);
@@ -187,6 +187,8 @@
 - (void)launchGameViewController {
     ViewControllerGame *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"GameControllerIdentifier"];
     controller.passingPlayers = [[NSMutableArray alloc] initWithArray:[self.playersListScrollView players]];
+    NSLog(@"ViewControllerSelectPlayers || launchGameViewController || %@", [chooseStarView selectedItems]);
+    controller.passingPackAvalaible = [chooseStarView selectedItems];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

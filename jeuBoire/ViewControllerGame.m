@@ -52,6 +52,8 @@
     
     game = [[GameSession alloc] initWithController:self QRFields:qrFields GGFields:ggFields];
     [game setPlayers:(NSArray *)self.passingPlayers];
+    NSLog(@"ViewControllerGame || viewDidLoad || self.passingPackAvalaible = %@", self.passingPackAvalaible);
+    [game setPackAvalaible:self.passingPackAvalaible];
     
     if ([game containQuestions] && [game containGages])
         [self startGame];

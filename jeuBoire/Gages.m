@@ -41,19 +41,26 @@
     return [dictionary allKeys];
 }
 
+- (NSArray *)getPackContained {
+    NSMutableArray *arrayPackContained = [[NSMutableArray alloc] init];
+    for (NSString *key in [dictionary allKeys]) {
+        PackGages *pG = (PackGages *)[dictionary objectForKey:key];
+        [arrayPackContained addObject:pG];
+    }
+    return (NSArray *)arrayPackContained;
+}
+
 - (void)addGage:(Gage *)gage {
     NSString *idPack = [gage getStrignIdPack];
     
     if (!dictionary)
         dictionary = [[NSMutableDictionary alloc] init];
     
-    PackGages *packGages = (PackGages *)[dictionary objectForKey:idPack];
-    if (!packGages)
-        packGages = [[PackGages alloc] initWithIdPack:[idPack intValue]];
-    else
-        [packGages addGage:gage];
-    
-    //[dictionary setObject:gages forKey:idPack];
+    PackGages *packG = (PackGages *)[dictionary objectForKey:idPack];
+    if (!packG)
+        packG = [[PackGages alloc] initWithIdPack:[idPack intValue]];
+    [packG addGage:gage];
+    [dictionary setObject:packG forKey:idPack];
 }
 
 - (BOOL)containsGages {
@@ -63,20 +70,31 @@
 #pragma mark - SAVE/LOAD -
 
 - (void)saveToLocal {
+    NSLog(@"GAGES | Save to local");
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"gages.txt"];
+    NSLog(@"GAGES | Save to local | dictionary -> %@", dictionary);
     [NSKeyedArchiver archiveRootObject:dictionary toFile:appFile];
 }
 
 - (void)loadFromLocal {
+    NSLog(@"GAGES | Load from local");
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"gages.txt"];
     dictionary = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+    NSLog(@"GAGES | Load from local | dictionary -> %@", dictionary);
 }
 
 - (void)loadFromWeb:(void (^)(void))completion onFailed:(void (^)(void))fail andForce:(BOOL)force {
+    
+    /// DELETE THIS LINE
+#warning delete this line
+    force=TRUE;
+#warning delete this line
+    /// DELETE THIS LINE
+    
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
                             [OpenUDID value], @"open_udid",
                             @"1", @"operating_system",
@@ -87,26 +105,25 @@
         
         NSLog(@"Operation : %@ || Params : %@ || Response : %@", operation, params, responseObject);
         
-        NSDictionary *dictIdPackGage = [responseObject objectForKey:@"id_pack_gage"];
-        for (NSString *idPackGage in dictIdPackGage) {
-            NSDictionary *dictGages = [dictIdPackGage objectForKey:idPackGage];
-            
-            for (NSDictionary *g in dictGages) {
+        NSArray *gages = [responseObject objectForKey:@"Gages"];
+        for (NSDictionary *g in gages) {
+            if ([[[g objectForKey:@"pack_gage"] objectForKey:@"is_free"] boolValue]) {
                 Gage *gage = [[Gage alloc] init];
-                [gage setLevel:[[g objectForKey:@"level"] intValue]];
-                [gage setDescription:[g objectForKey:@"label"]];
-                [gage setIdPack:[[g objectForKey:@"id_pack_gage"] intValue]];
-                [gage setContainsLevel:[[g objectForKey:@"contains_levels"] boolValue]];
-                [gage setDuration:[[g objectForKey:@"duration"] intValue]];
-                
+                [gage setLevel:[[[g objectForKey:@"gage"] objectForKey:@"level"] intValue]];
+                [gage setDescription:[[g objectForKey:@"gage"] objectForKey:@"label"]];
+                [gage setIdPack:[[[g objectForKey:@"pack_gage"] objectForKey:@"id_pack_gage"] intValue]];
+                [gage setContainsLevel:[[[g objectForKey:@"gage"] objectForKey:@"contains_levels"] boolValue]];
+                [gage setDuration:[[[g objectForKey:@"gage"] objectForKey:@"duration"] intValue]];
                 [self addGage:gage];
+            } else {
+                
             }
         }
         
         [self saveToLocal];
         [completion invoke];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        NSLog(@"Error : %@ || operation : %@ || params : %@", error, operation, params);
         [fail invoke];
     }];
 }

@@ -19,7 +19,7 @@
 
 - (int)nbOfQuestion;
 - (BOOL)containsQuestions;
-
+- (NSArray *)getPackContained;
 - (QuestionReponse *)getQrWithIdPack:(int)idPack;
 
 - (void)saveToLocal;

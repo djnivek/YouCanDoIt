@@ -33,6 +33,11 @@
  **/
 - (NSArray *)getIdPackContained;
 
+/**
+ Retourne les packs contenus
+ **/
+- (NSArray *)getPackContained;
+
 - (void)addGage:(Gage *)gage;
 
 - (BOOL)containsGages;

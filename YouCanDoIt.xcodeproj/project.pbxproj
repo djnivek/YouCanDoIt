@@ -16,6 +16,9 @@
 		0E3EE6E818BF5C22006501D4 /* PlayerProfilView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EE6E718BF5C22006501D4 /* PlayerProfilView.m */; };
 		0E4325F5188DAC680022C7D0 /* ViewControllerLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E4325F4188DAC680022C7D0 /* ViewControllerLoader.m */; };
 		0E5BDD1A18E9D95D00E88B59 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5BDD1918E9D95D00E88B59 /* Utils.m */; };
+		0E61A3811900229000E51191 /* ItemPackGages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E61A37C1900229000E51191 /* ItemPackGages.m */; };
+		0E61A3821900229000E51191 /* ItemPackGagesContainerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E61A37E1900229000E51191 /* ItemPackGagesContainerScrollView.m */; };
+		0E61A3831900229000E51191 /* ItemPackGagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E61A3801900229000E51191 /* ItemPackGagesView.m */; };
 		0E70EF5E18D7098700F7B67E /* GageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E70EF5D18D7098700F7B67E /* GageController.m */; };
 		0E72354F18E0247D009E618E /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E72354E18E0247D009E618E /* Const.m */; };
 		0E741271188C309700821784 /* QuestionReponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E741270188C309700821784 /* QuestionReponse.m */; };
@@ -29,7 +32,7 @@
 		0E76036D18C0FBA100E657BE /* PlayersListSV.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E76036C18C0FBA100E657BE /* PlayersListSV.m */; };
 		0E769F2C18F848680022064D /* ChoosePackAndStarGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E769F2B18F848680022064D /* ChoosePackAndStarGameView.m */; };
 		0E7888DD18FAD2B400FB0CCC /* PackGages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7888DC18FAD2B400FB0CCC /* PackGages.m */; };
-		0E7888E018FADE1500FB0CCC /* PackQR.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7888DF18FADE1500FB0CCC /* PackQR.m */; };
+		0E7888E018FADE1500FB0CCC /* PackQRs.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7888DF18FADE1500FB0CCC /* PackQRs.m */; };
 		0E9343A218D725C5008A538B /* GageFields.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9343A118D725C5008A538B /* GageFields.m */; };
 		0E9C4F5418CA31D70039F543 /* QRFields.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9C4F5318CA31D70039F543 /* QRFields.m */; };
 		0EA14B9D18C356F200BD556F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA14B9C18C356F200BD556F /* Main.storyboard */; };
@@ -81,6 +84,12 @@
 		0E4325F4188DAC680022C7D0 /* ViewControllerLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLoader.m; sourceTree = "<group>"; };
 		0E5BDD1818E9D95D00E88B59 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		0E5BDD1918E9D95D00E88B59 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		0E61A37B1900229000E51191 /* ItemPackGages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemPackGages.h; sourceTree = "<group>"; };
+		0E61A37C1900229000E51191 /* ItemPackGages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPackGages.m; sourceTree = "<group>"; };
+		0E61A37D1900229000E51191 /* ItemPackGagesContainerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemPackGagesContainerScrollView.h; sourceTree = "<group>"; };
+		0E61A37E1900229000E51191 /* ItemPackGagesContainerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPackGagesContainerScrollView.m; sourceTree = "<group>"; };
+		0E61A37F1900229000E51191 /* ItemPackGagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemPackGagesView.h; sourceTree = "<group>"; };
+		0E61A3801900229000E51191 /* ItemPackGagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPackGagesView.m; sourceTree = "<group>"; };
 		0E70EF5C18D7098700F7B67E /* GageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GageController.h; sourceTree = "<group>"; };
 		0E70EF5D18D7098700F7B67E /* GageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GageController.m; sourceTree = "<group>"; };
 		0E72354D18E0247D009E618E /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
@@ -103,8 +112,8 @@
 		0E769F2B18F848680022064D /* ChoosePackAndStarGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePackAndStarGameView.m; sourceTree = "<group>"; };
 		0E7888DB18FAD2B400FB0CCC /* PackGages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackGages.h; sourceTree = "<group>"; };
 		0E7888DC18FAD2B400FB0CCC /* PackGages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackGages.m; sourceTree = "<group>"; };
-		0E7888DE18FADE1500FB0CCC /* PackQR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackQR.h; sourceTree = "<group>"; };
-		0E7888DF18FADE1500FB0CCC /* PackQR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackQR.m; sourceTree = "<group>"; };
+		0E7888DE18FADE1500FB0CCC /* PackQRs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackQRs.h; sourceTree = "<group>"; };
+		0E7888DF18FADE1500FB0CCC /* PackQRs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackQRs.m; sourceTree = "<group>"; };
 		0E9343A018D725C5008A538B /* GageFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GageFields.h; sourceTree = "<group>"; };
 		0E9343A118D725C5008A538B /* GageFields.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GageFields.m; sourceTree = "<group>"; };
 		0E9C4F5218CA31D70039F543 /* QRFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRFields.h; sourceTree = "<group>"; };
@@ -174,6 +183,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E1C770A19004D6800573104 /* list */ = {
+			isa = PBXGroup;
+			children = (
+				0EEFE79318DA44F4003F7738 /* Gages.h */,
+				0EEFE79418DA44F4003F7738 /* Gages.m */,
+				0E1F683E18DF3A3300746E6B /* QRLibrary.h */,
+				0E1F683F18DF3A3300746E6B /* QRLibrary.m */,
+			);
+			name = list;
+			sourceTree = "<group>";
+		};
 		0E272AA618E19D14006C85A4 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +218,7 @@
 		0E3EE6E518BF5BEA006501D4 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				0E61A37A1900222400E51191 /* ItemGage */,
 				0E28BDDA18F70296006C460E /* Checkmark */,
 				0ED19EF718F3F3E100F1F7CF /* ItemQuestion */,
 				0ED19EF618F3F3C900F1F7CF /* ItemGage */,
@@ -235,6 +256,19 @@
 			name = BeforeGame;
 			sourceTree = "<group>";
 		};
+		0E61A37A1900222400E51191 /* ItemGage */ = {
+			isa = PBXGroup;
+			children = (
+				0E61A37B1900229000E51191 /* ItemPackGages.h */,
+				0E61A37C1900229000E51191 /* ItemPackGages.m */,
+				0E61A37D1900229000E51191 /* ItemPackGagesContainerScrollView.h */,
+				0E61A37E1900229000E51191 /* ItemPackGagesContainerScrollView.m */,
+				0E61A37F1900229000E51191 /* ItemPackGagesView.h */,
+				0E61A3801900229000E51191 /* ItemPackGagesView.m */,
+			);
+			name = ItemGage;
+			sourceTree = "<group>";
+		};
 		0E72354C18E02469009E618E /* config */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,10 +281,7 @@
 		0E74126E188C307400821784 /* entity */ = {
 			isa = PBXGroup;
 			children = (
-				0EEFE79318DA44F4003F7738 /* Gages.h */,
-				0EEFE79418DA44F4003F7738 /* Gages.m */,
-				0E1F683E18DF3A3300746E6B /* QRLibrary.h */,
-				0E1F683F18DF3A3300746E6B /* QRLibrary.m */,
+				0E1C770A19004D6800573104 /* list */,
 				0E74126F188C309700821784 /* QuestionReponse.h */,
 				0E741270188C309700821784 /* QuestionReponse.m */,
 				0E741272188C30AC00821784 /* Gage.h */,
@@ -259,8 +290,8 @@
 				0E74127A188C318D00821784 /* Player.m */,
 				0E7888DB18FAD2B400FB0CCC /* PackGages.h */,
 				0E7888DC18FAD2B400FB0CCC /* PackGages.m */,
-				0E7888DE18FADE1500FB0CCC /* PackQR.h */,
-				0E7888DF18FADE1500FB0CCC /* PackQR.m */,
+				0E7888DE18FADE1500FB0CCC /* PackQRs.h */,
+				0E7888DF18FADE1500FB0CCC /* PackQRs.m */,
 			);
 			name = entity;
 			sourceTree = "<group>";
@@ -555,6 +586,7 @@
 			files = (
 				0ED19EFA18F3F41100F1F7CF /* ItemPackQuestionContainerScrollView.m in Sources */,
 				0EDD7E43188590A2009F8507 /* ViewController.m in Sources */,
+				0E61A3831900229000E51191 /* ItemPackGagesView.m in Sources */,
 				0E5BDD1A18E9D95D00E88B59 /* Utils.m in Sources */,
 				0E76036D18C0FBA100E657BE /* PlayersListSV.m in Sources */,
 				0EDD7E3D188590A2009F8507 /* AppDelegate.m in Sources */,
@@ -566,7 +598,7 @@
 				0EAC6BF418E436AE0077895C /* EVCircularProgressView.m in Sources */,
 				0EA240BD18CDA67100AB770B /* QRSController.m in Sources */,
 				0E741278188C316600821784 /* GameSession.m in Sources */,
-				0E7888E018FADE1500FB0CCC /* PackQR.m in Sources */,
+				0E7888E018FADE1500FB0CCC /* PackQRs.m in Sources */,
 				0E72354F18E0247D009E618E /* Const.m in Sources */,
 				0ED19EFD18F3F48500F1F7CF /* ItemPackQuestionView.m in Sources */,
 				0E74127B188C318D00821784 /* Player.m in Sources */,
@@ -580,9 +612,11 @@
 				0E1F684018DF3A3300746E6B /* QRLibrary.m in Sources */,
 				0E272AA318E197E9006C85A4 /* PopUpDurationViewController.m in Sources */,
 				0EDD7E39188590A2009F8507 /* main.m in Sources */,
+				0E61A3821900229000E51191 /* ItemPackGagesContainerScrollView.m in Sources */,
 				0E28BDDD18F702B2006C460E /* CheckmarkView.m in Sources */,
 				0E9343A218D725C5008A538B /* GageFields.m in Sources */,
 				0EDD7E6318859680009F8507 /* ViewControllerSelectPlayers.m in Sources */,
+				0E61A3811900229000E51191 /* ItemPackGages.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

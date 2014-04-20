@@ -18,27 +18,32 @@
     if (self) {
         qrFields = fields;
         [qrFields setController:self];
-        
         questionsResponses = qrs;
     }
     return self;
+}
+
+- (void)setPackQuestionAvalaible:(NSArray *)_packQuestion {
+    packGageAvalaible = _packQuestion;
 }
 
 #pragma mark - Pull Question -
 
 - (void)pullOtherQuestion {
     NSLog(@"QRSController || otherQuestion");
-    currentQuestionReponse = [self pullQuestion];
+    NSLog(@"QRSController || otherQuestion || %@", packGageAvalaible);
+    int idPackRandom = arc4random() % [packGageAvalaible count];
+    currentQuestionReponse = [self pullQuestionWithIdPack:idPackRandom];
     [qrFields setQuestionReponse:currentQuestionReponse];
 }
 
-- (QuestionReponse *)pullQuestion {
+- (QuestionReponse *)pullQuestionWithIdPack:(int)idPack {
     
     int r = arc4random() % [questionsResponses nbOfQuestion];
     currentQuestion = r;
     
     if ([questionsResponses containsQuestions]) {
-        return [questionsResponses getQrAtIndex:r];
+        return [questionsResponses getQrWithIdPack:idPack];
     }
     
     return [[QuestionReponse alloc] initWithQuestion:@"Unknow" answers:NULL goodAnswer:0];

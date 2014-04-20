@@ -52,4 +52,29 @@
     return gageList;
 }
 
+- (NSString *)title {
+    return titre;
+}
+
+#pragma mark - NSCoding -
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    NSLog(@"PackGages || encodeWithCoder");
+    [encoder encodeInt:idPackGage forKey:@"id_pack_gage"];
+    [encoder encodeObject:titre forKey:@"title"];
+    [encoder encodeObject:description forKey:@"description"];
+    [encoder encodeObject:gageList forKey:@"gage_list"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    NSLog(@"PackGages || initWithCoder");
+    if (self = [super init]) {
+        idPackGage = [decoder decodeIntForKey:@"id_pack_gage"];
+        titre = [decoder decodeObjectForKey:@"title"];
+        description = [decoder decodeObjectForKey:@"description"];
+        gageList = [decoder decodeObjectForKey:@"gage_list"];
+    }
+    return self;
+}
+
 @end

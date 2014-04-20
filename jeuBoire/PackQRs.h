@@ -10,9 +10,10 @@
 
 @class QuestionReponse;
 
-@interface PackQR : NSObject
+@interface PackQRs : NSObject
 {
     int idPackQR;
+    int isFree;
     NSString *titre;
     NSString *description;
     NSMutableArray *qrList;
@@ -22,5 +23,10 @@
 
 - (void)addQR:(QuestionReponse *)qr;
 - (NSArray *)qrs;
+- (NSString *)title;
+- (NSString *)getID;
+
+- (void)setFree:(BOOL)free;
+- (void)setTitle:(NSString *)title;
 
 @end

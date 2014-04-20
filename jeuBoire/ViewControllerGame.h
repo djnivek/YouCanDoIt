@@ -42,7 +42,10 @@
     IBOutlet UIProgressView *progressBar;
 }
 
+//  Players passés lors du PushVC
 @property (nonatomic, retain) NSMutableArray *passingPlayers;
+//  Pack de Questions et Gages passés lors du PushVC
+@property (nonatomic, retain) NSDictionary *passingPackAvalaible;
 
 - (void)popWithTitle:(NSString *)title message:(NSString *)msg delegate:(id)delegate;
 - (void)popWithTitle:(NSString *)title message:(NSString *)msg delegate:(id)delegate tag:(int)tag;

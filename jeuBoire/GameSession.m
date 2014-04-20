@@ -15,7 +15,7 @@
 #import "GageController.h"
 #import "Player.h"
 
-#define SEC_DURATION 6
+#define SEC_DURATION_RESPONSE 6
 
 @implementation GameSession
 
@@ -23,13 +23,13 @@
 {
     self = [super init];
     if (self) {
-        
         [self addListener];
-        
         mainController = _controller;
         application = [[UIApplication sharedApplication] delegate];
         qrController = [[QRSController alloc] initWithQRFields:_qrFields andQR:[application questionsListe]];
         ggController = [[GageController alloc] initWithGageFields:_ggFields andGages:[application gagesList]];
+        packAvailableQuestion = [[NSArray alloc] init];
+        packAvailableGage = [[NSArray alloc] init];
         level = 0;
     }
     return self;
@@ -44,6 +44,15 @@
 
 - (void)setPlayers:(NSArray *)_players {
     players = [NSMutableArray arrayWithArray:_players];
+}
+
+- (void)setPackAvalaible:(NSDictionary *)_packAvalaible {
+    NSLog(@"GameSession || setPackAvalaible || _packAvalaible = %@", _packAvalaible);
+    packAvailableQuestion   = (NSArray *)   [_packAvalaible objectForKey:@"pack_questions"];
+    packAvailableGage       = (NSArray *)   [_packAvalaible objectForKey:@"pack_gages"];
+    NSLog(@"GameSession || setPackAvalaible || packAvailableQuestion = %@", packAvailableQuestion);
+    [ggController setPackGageAvalaible:packAvailableGage];
+    [qrController setPackQuestionAvalaible:packAvailableQuestion];
 }
 
 - (void)findPlayer {
@@ -62,7 +71,7 @@
     [ggController hiddeGageLayout:TRUE];
     [self findPlayer];
     [qrController pullOtherQuestion];
-    [self setDurationToRespond:SEC_DURATION];
+    [self setDurationToRespond:SEC_DURATION_RESPONSE];
 }
 
 - (void)setDurationToRespond:(int)duration {

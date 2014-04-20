@@ -17,7 +17,11 @@
     
     UIBezierPath *ovalPath;
     UIBezierPath *bezierPath;
+    
+    BOOL activated;
 }
+
+- (BOOL)isActivated;
 
 - (void)setEnable;
 - (void)setDisable;

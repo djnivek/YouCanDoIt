@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Kévin MACHADO. All rights reserved.
 //
 
-#import "ItemPackQuestionView.h"
-#import "ItemPackQuestion.h"
+#import "ItemPackGagesView.h"
+#import "ItemPackGages.h"
 #import "CheckmarkView.h"
 
 #define COEF_DIV 1.3
 
-@implementation ItemPackQuestionView
+@implementation ItemPackGagesView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -70,6 +70,8 @@
 #pragma mark - ACCESSORS -
 
 - (void)setEnable:(BOOL)enable {
+    selected = enable;
+    
     if (!checkmarkView)
         [self addCheckMark];
     
@@ -79,17 +81,16 @@
         [checkmarkView setDisable];
 }
 
-- (void)setItem:(ItemPackQuestion *)pkQ {
+- (void)setItem:(ItemPackGages *)pkQ {
     [label setText:[pkQ title]];
 }
 
-- (ItemPackQuestion *)item {
+- (ItemPackGages *)item {
     return item;
 }
 
 - (BOOL)isSelected {
-    NSLog(@"ItemPackQuestionView || isSelected = %d", [checkmarkView isActivated]);
-    return [checkmarkView isActivated];
+    return selected;
 }
 
 @end

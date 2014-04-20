@@ -10,7 +10,7 @@
 #import "QuestionReponse.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import "OpenUDID.h"
-#import "PackQR.h"
+#import "PackQRs.h"
 
 @implementation QRLibrary
 
@@ -23,17 +23,40 @@
     return self;
 }
 
+- (NSArray *)getPackContained {
+    NSMutableArray *arrayPackContained = [[NSMutableArray alloc] init];
+    for (NSString *key in [dictionary allKeys]) {
+        PackQRs *pG = (PackQRs *)[dictionary objectForKey:key];
+        [arrayPackContained addObject:pG];
+    }
+    return (NSArray *)arrayPackContained;
+}
+
 - (void)addQR:(QuestionReponse *)qr {
     NSString *idPack = [qr getStrignIdPack];
     
     if (!dictionary)
         dictionary = [[NSMutableDictionary alloc] init];
     
-    PackQR *packQR = (PackQR *)[dictionary objectForKey:idPack];
+    PackQRs *packQR = (PackQRs *)[dictionary objectForKey:idPack];
     if (!packQR)
-        packQR = [[PackQR alloc] initWithIdPack:[idPack intValue]];
-    else
-        [packQR addQR:qr];
+        packQR = [[PackQRs alloc] initWithIdPack:[idPack intValue]];
+    [packQR addQR:qr];
+    [dictionary setObject:packQR forKey:idPack];
+}
+
+/**
+ *  Ajout du pack s'il n'existe pas
+ **/
+- (void)addPackQRs:(PackQRs *)pck {
+    NSString *idPack = [pck getID];
+    
+    if (!dictionary)
+        dictionary = [[NSMutableDictionary alloc] init];
+    
+    PackQRs *packQR = (PackQRs *)[dictionary objectForKey:idPack];
+    if (!packQR)
+        [dictionary setObject:pck forKey:idPack];
 }
 
 - (int)nbOfQuestion {
@@ -45,26 +68,37 @@
 }
 
 - (QuestionReponse *)getQrWithIdPack:(int)idPack {
-    PackQR *pQR = (PackQR *)[dictionary objectForKey:[NSString stringWithFormat:@"%d", idPack]];
+    PackQRs *pQR = (PackQRs *)[dictionary objectForKey:[NSString stringWithFormat:@"%d", idPack]];
     int r = arc4random() % [[pQR qrs] count];
     return [[pQR qrs] objectAtIndex:r];
 }
 
 - (void)saveToLocal {
+    NSLog(@"QR LIBRARY | Save to local");
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"questions.txt"];
+    NSLog(@"QR LIBRARY | Save to local | dictionary -> %@", dictionary);
     [NSKeyedArchiver archiveRootObject:dictionary toFile:appFile];
 }
 
 - (void)loadFromLocal {
+    NSLog(@"QR LIBRARY | Load from local");
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"questions.txt"];
     dictionary = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+    NSLog(@"QR LIBRARY | Load from local | dictionary -> %@", dictionary);
 }
 
 - (void)loadFromWeb:(void (^)(void))completion onFailed:(void (^)(void))fail andForce:(BOOL)force {
+    
+    /// DELETE THIS LINE
+#warning delete this line
+    force=TRUE;
+#warning delete this line
+    /// DELETE THIS LINE
+    
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
                             [OpenUDID value], @"open_udid",
                             @"1", @"operating_system",
@@ -76,15 +110,23 @@
         NSLog(@"Operation : %@ || Params : %@ || Response : %@", operation, params, responseObject);
 
         NSArray *questions = [responseObject objectForKey:@"Questions"];
-        for (NSDictionary* question in questions) {
-            QuestionReponse *q = [[QuestionReponse alloc] initWithQuestion:[question objectForKey:@"question"] answers:[question objectForKey:@"answers"] goodAnswer:[[[question objectForKey:@"answers"] objectForKey:@"right_answer"] intValue]];
-            [q setIdPack:[[question objectForKey:@"id_pack_question"] intValue]];
-            [self addQR:q];
+        
+        for (NSDictionary *question in questions) {
+            if ([[[question objectForKey:@"pack_question"] objectForKey:@"is_free"] boolValue]) {
+                QuestionReponse *q = [[QuestionReponse alloc] initWithQuestion:[question objectForKey:@"question"] answers:[question objectForKey:@"answers"] goodAnswer:[[[question objectForKey:@"answers"] objectForKey:@"right_answer"] intValue]];
+                [q setIdPack:[[[question objectForKey:@"pack_question"] objectForKey:@"id_pack_question"] intValue]];
+                [self addQR:q];
+            } else {
+                PackQRs *pck = [[PackQRs alloc] initWithIdPack:[[[question objectForKey:@"pack_question"] objectForKey:@"id_pack_question"] intValue]];
+                [pck setFree:FALSE];
+                [pck setTitle:[[question objectForKey:@"pack_question"] objectForKey:@"title"]];
+                [self addPackQRs:pck];
+            }
         }
         [self saveToLocal];
         [completion invoke];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@ || params : %@", error, params);
+        NSLog(@"Error : %@ || operation : %@ || params : %@", error, operation, params);
         [fail invoke];
     }];
 }
