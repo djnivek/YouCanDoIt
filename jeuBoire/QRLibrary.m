@@ -54,8 +54,8 @@
     if (!dictionary)
         dictionary = [[NSMutableDictionary alloc] init];
     
-    PackQRs *packQR = (PackQRs *)[dictionary objectForKey:idPack];
-    if (!packQR)
+    //PackQRs *packQR = (PackQRs *)[dictionary objectForKey:idPack];
+    //if (!packQR)
         [dictionary setObject:pck forKey:idPack];
 }
 
@@ -109,19 +109,20 @@
         
         NSLog(@"Operation : %@ || Params : %@ || Response : %@", operation, params, responseObject);
 
-        NSArray *questions = [responseObject objectForKey:@"Questions"];
-        
-        for (NSDictionary *question in questions) {
-            if ([[[question objectForKey:@"pack_question"] objectForKey:@"is_free"] boolValue]) {
-                QuestionReponse *q = [[QuestionReponse alloc] initWithQuestion:[question objectForKey:@"question"] answers:[question objectForKey:@"answers"] goodAnswer:[[[question objectForKey:@"answers"] objectForKey:@"right_answer"] intValue]];
-                [q setIdPack:[[[question objectForKey:@"pack_question"] objectForKey:@"id_pack_question"] intValue]];
-                [self addQR:q];
-            } else {
-                PackQRs *pck = [[PackQRs alloc] initWithIdPack:[[[question objectForKey:@"pack_question"] objectForKey:@"id_pack_question"] intValue]];
-                [pck setFree:FALSE];
-                [pck setTitle:[[question objectForKey:@"pack_question"] objectForKey:@"title"]];
-                [self addPackQRs:pck];
+        NSArray *lesPacksQuestions = [responseObject objectForKey:@"lespacks"];
+        for (NSDictionary *packQuestions in lesPacksQuestions) {
+            PackQRs *pck = [[PackQRs alloc] initWithIdPack:[[[packQuestions objectForKey:@"informations"] objectForKey:@"id_pack_question"] intValue]];
+            [pck setFree:[[[packQuestions objectForKey:@"informations"] objectForKey:@"is_free"] boolValue]];
+            [pck setTitle:[[packQuestions objectForKey:@"informations"] objectForKey:@"title"]];
+            
+            NSArray *lesQuestions = [packQuestions objectForKey:@"questions"];
+            if ([pck isFree]) {
+                for (NSDictionary *question in lesQuestions) {
+                    QuestionReponse *q = [[QuestionReponse alloc] initWithQuestion:[question objectForKey:@"question"] answers:[question objectForKey:@"answers"] goodAnswer:[[[question objectForKey:@"answers"] objectForKey:@"right_answer"] intValue]];
+                    [pck addQR:q];
+                }
             }
+            [self addPackQRs:pck];
         }
         [self saveToLocal];
         [completion invoke];

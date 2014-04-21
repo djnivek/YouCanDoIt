@@ -47,10 +47,8 @@
 }
 
 - (void)setPackAvalaible:(NSDictionary *)_packAvalaible {
-    NSLog(@"GameSession || setPackAvalaible || _packAvalaible = %@", _packAvalaible);
     packAvailableQuestion   = (NSArray *)   [_packAvalaible objectForKey:@"pack_questions"];
     packAvailableGage       = (NSArray *)   [_packAvalaible objectForKey:@"pack_gages"];
-    NSLog(@"GameSession || setPackAvalaible || packAvailableQuestion = %@", packAvailableQuestion);
     [ggController setPackGageAvalaible:packAvailableGage];
     [qrController setPackQuestionAvalaible:packAvailableQuestion];
 }

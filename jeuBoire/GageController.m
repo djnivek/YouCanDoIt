@@ -10,6 +10,7 @@
 #import "GageFields.h"
 #import "Gage.h"
 #import "Gages.h"
+#import "ItemPackGages.h"
 
 @implementation GageController
 
@@ -46,7 +47,7 @@
     //L'utilisateur choisi le nom qui sera toujours bridé et SI currentplayer.name = packplus.namebride ALORS SI gage = gagebridés ALORS
     //nouveau tirage
     
-    int idPackRandom = arc4random() % [packGageAvalaible count];
+    int idPackRandom = [self findIdPackAmongAvailable];
     NSArray *array = [gagesLibrary getForIdPack:idPackRandom level:level];
     int r = arc4random() % [array count];
     
@@ -56,6 +57,13 @@
     }
     
     return NULL;
+}
+
+- (int)findIdPackAmongAvailable {
+    // Permet de trouver l'identifiant d'un pack aléatoire parmi les packs selectionnés
+    int random = arc4random() % [packGageAvalaible count];
+    ItemPackGages *pck = [packGageAvalaible objectAtIndex:random];
+    return [[pck idPack] intValue];
 }
 
 - (int)currentGageDuration {

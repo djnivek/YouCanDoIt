@@ -38,6 +38,7 @@
 }
 
 - (void)addQR:(QuestionReponse *)qr {
+    NSLog(@"PACK QRS ----> addQR %@", qr);
     [qrList addObject:qr];
 }
 
@@ -53,6 +54,10 @@
 
 - (NSString *)getID {
     return [[NSString alloc] initWithFormat:@"%d",idPackQR];
+}
+
+- (BOOL)isFree {
+    return isFree;
 }
 
 - (void)setFree:(BOOL)free {

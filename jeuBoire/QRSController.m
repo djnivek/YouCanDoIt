@@ -10,6 +10,7 @@
 #import "QRFields.h"
 #import "QuestionReponse.h"
 #import "QRLibrary.h"
+#import "ItemPackQuestion.h"
 
 @implementation QRSController
 
@@ -24,17 +25,23 @@
 }
 
 - (void)setPackQuestionAvalaible:(NSArray *)_packQuestion {
-    packGageAvalaible = _packQuestion;
+    packQuestionAvalaible = _packQuestion;
 }
 
 #pragma mark - Pull Question -
 
 - (void)pullOtherQuestion {
     NSLog(@"QRSController || otherQuestion");
-    NSLog(@"QRSController || otherQuestion || %@", packGageAvalaible);
-    int idPackRandom = arc4random() % [packGageAvalaible count];
+    int idPackRandom = [self findIdPackAmongAvailable];
     currentQuestionReponse = [self pullQuestionWithIdPack:idPackRandom];
     [qrFields setQuestionReponse:currentQuestionReponse];
+}
+
+- (int)findIdPackAmongAvailable {
+    // Permet de trouver l'identifiant d'un pack aléatoire parmi les packs selectionnés
+    int random = arc4random() % [packQuestionAvalaible count];
+    ItemPackQuestion *pck = [packQuestionAvalaible objectAtIndex:random];
+    return [[pck idPack] intValue];
 }
 
 - (QuestionReponse *)pullQuestionWithIdPack:(int)idPack {

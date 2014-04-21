@@ -37,10 +37,10 @@
         [self addSubview:packQRScrollView];
         
         NSArray *packQuestionsContained = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] questionsListe] getPackContained];
-        NSLog(@"ChoosePackAndStarGameView | packQuestionsContained = %@", packQuestionsContained);
         for (PackQRs *pQR in packQuestionsContained) {
             ItemPackQuestion *pQ = [[ItemPackQuestion alloc] init];
             [pQ setTitle:[pQR title]];
+            [pQ setIdPack:[[pQR getID] intValue]];
             [packQRScrollView addItemView:pQ];
         }
         
@@ -49,10 +49,10 @@
         [self addSubview:packGScrollView];
         
         NSArray *packGagesContained = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] gagesList] getPackContained];
-        NSLog(@"ChoosePackAndStarGameView | packGagesContained = %@", packGagesContained);
         for (PackGages *pG in packGagesContained) {
             ItemPackGages *ipG = [[ItemPackGages alloc] init];
             [ipG setTitle:[pG title]];
+            [ipG setIdPack:[[pG getID] intValue]];
             [packGScrollView addItemView:ipG];
         }
         
@@ -78,10 +78,6 @@
 }
 
 - (NSDictionary *)selectedItems {
-    NSLog(@"------> TRY -> %@", [packQRScrollView selectedItems]);
-    NSLog(@"------> TRY -> %@", [packGScrollView selectedItems]);
-    
-    
     return [NSDictionary dictionaryWithObjectsAndKeys:
             [packQRScrollView selectedItems], @"pack_questions",
             [packGScrollView selectedItems], @"pack_gages",

@@ -187,7 +187,6 @@
 - (void)launchGameViewController {
     ViewControllerGame *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"GameControllerIdentifier"];
     controller.passingPlayers = [[NSMutableArray alloc] initWithArray:[self.playersListScrollView players]];
-    NSLog(@"ViewControllerSelectPlayers || launchGameViewController || %@", [chooseStarView selectedItems]);
     controller.passingPackAvalaible = [chooseStarView selectedItems];
     [self.navigationController pushViewController:controller animated:YES];
 }

@@ -41,7 +41,7 @@
     NSMutableArray *selectedItems = [[NSMutableArray alloc] init];
     for (ItemPackGagesView *iPGView in itemViewStack) {
         if ([iPGView isSelected]) {
-            [selectedItems addObject:iPGView];
+            [selectedItems addObject:[iPGView item]];
         }
     }
     return (NSArray *)selectedItems;

@@ -63,6 +63,17 @@
     [dictionary setObject:packG forKey:idPack];
 }
 
+- (void)addPackGage:(PackGages *)pack {
+    NSString *idPack = [pack getID];
+    
+    if (!dictionary)
+        dictionary = [[NSMutableDictionary alloc] init];
+    
+    //PackGages *packG = (PackGages *)[dictionary objectForKey:idPack];
+    //if (!packG)
+        [dictionary setObject:pack forKey:idPack];
+}
+
 - (BOOL)containsGages {
     return ([dictionary count] > 0);
 }
@@ -105,19 +116,26 @@
         
         NSLog(@"Operation : %@ || Params : %@ || Response : %@", operation, params, responseObject);
         
-        NSArray *gages = [responseObject objectForKey:@"Gages"];
-        for (NSDictionary *g in gages) {
-            if ([[[g objectForKey:@"pack_gage"] objectForKey:@"is_free"] boolValue]) {
-                Gage *gage = [[Gage alloc] init];
-                [gage setLevel:[[[g objectForKey:@"gage"] objectForKey:@"level"] intValue]];
-                [gage setDescription:[[g objectForKey:@"gage"] objectForKey:@"label"]];
-                [gage setIdPack:[[[g objectForKey:@"pack_gage"] objectForKey:@"id_pack_gage"] intValue]];
-                [gage setContainsLevel:[[[g objectForKey:@"gage"] objectForKey:@"contains_levels"] boolValue]];
-                [gage setDuration:[[[g objectForKey:@"gage"] objectForKey:@"duration"] intValue]];
-                [self addGage:gage];
-            } else {
-                
+        NSArray *lesPacksGages = [responseObject objectForKey:@"lespacks"];
+        for (NSDictionary *packGages in lesPacksGages) {
+            PackGages *pack = [[PackGages alloc] init];
+            [pack setIsFree:[[[packGages objectForKey:@"informations"] objectForKey:@"is_free"] boolValue]];
+            [pack setTitre:[[packGages objectForKey:@"informations"] objectForKey:@"title"]];
+            [pack setIdPack:[[[packGages objectForKey:@"informations"] objectForKey:@"id_pack_gage"] intValue]];
+            
+            NSArray *lesGages = [packGages objectForKey:@"gages"];
+            if ([pack isFree]) {
+                for (NSDictionary *leGage in lesGages) {
+                    Gage *gage = [[Gage alloc] init];
+                    [gage setLevel:[[leGage objectForKey:@"level"] intValue]];
+                    [gage setDescription:[leGage objectForKey:@"label"]];
+                    [gage setIdPack:[[leGage objectForKey:@"id_pack_gage"] intValue]];
+                    [gage setContainsLevel:[[leGage objectForKey:@"contains_levels"] boolValue]];
+                    [gage setDuration:[[leGage objectForKey:@"duration"] intValue]];
+                    [pack addGage:gage];
+                }
             }
+            [self addPackGage:pack];
         }
         
         [self saveToLocal];

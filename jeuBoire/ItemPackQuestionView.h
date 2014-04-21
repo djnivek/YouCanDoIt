@@ -23,5 +23,6 @@
 
 - (ItemPackQuestion *)item;
 - (BOOL)isSelected;
+- (int)idPack;
 
 @end

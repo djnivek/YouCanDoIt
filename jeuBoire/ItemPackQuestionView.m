@@ -21,6 +21,7 @@
         // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
         label = [[UILabel alloc] init];
+        item = [[ItemPackQuestion alloc] init];
     }
     return self;
 }
@@ -81,6 +82,7 @@
 
 - (void)setItem:(ItemPackQuestion *)pkQ {
     [label setText:[pkQ title]];
+    [item setIdPack:[[pkQ idPack] intValue]];
 }
 
 - (ItemPackQuestion *)item {
@@ -88,8 +90,11 @@
 }
 
 - (BOOL)isSelected {
-    NSLog(@"ItemPackQuestionView || isSelected = %d", [checkmarkView isActivated]);
     return [checkmarkView isActivated];
+}
+
+- (int)idPack {
+    return [[item idPack] intValue];
 }
 
 @end

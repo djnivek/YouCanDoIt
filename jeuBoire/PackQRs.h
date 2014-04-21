@@ -25,6 +25,7 @@
 - (NSArray *)qrs;
 - (NSString *)title;
 - (NSString *)getID;
+- (BOOL)isFree;
 
 - (void)setFree:(BOOL)free;
 - (void)setTitle:(NSString *)title;

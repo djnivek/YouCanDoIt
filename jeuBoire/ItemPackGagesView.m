@@ -21,6 +21,7 @@
         // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
         label = [[UILabel alloc] init];
+        item = [[ItemPackGages alloc] init];
     }
     return self;
 }
@@ -83,6 +84,7 @@
 
 - (void)setItem:(ItemPackGages *)pkQ {
     [label setText:[pkQ title]];
+    [item setIdPack:[[pkQ idPack] intValue]];
 }
 
 - (ItemPackGages *)item {

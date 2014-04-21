@@ -39,11 +39,9 @@
 
 - (NSArray *)selectedItems {
     NSMutableArray *selectedItems = [[NSMutableArray alloc] init];
-    NSLog(@"-----> TRY --<");
     for (ItemPackQuestionView *iPQView in itemViewStack) {
-        NSLog(@"-----> TRY --> ItemPackQuestionView || %@", iPQView);
         if ([iPQView isSelected]) {
-            [selectedItems addObject:iPQView];
+            [selectedItems addObject:[iPQView item]];
         }
     }
     return (NSArray *)selectedItems;

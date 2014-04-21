@@ -21,7 +21,7 @@
     
     int currentQuestion;
     
-    NSArray *packGageAvalaible;
+    NSArray *packQuestionAvalaible;
 }
 
 - (id)initWithQRFields:(QRFields *)fields andQR:(QRLibrary *)qrs;

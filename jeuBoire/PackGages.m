@@ -16,6 +16,7 @@
     self = [super init];
     if (self) {
         idPackGage = 0;
+        free = FALSE;
         titre = @"Sans titre";
         description = @"Description du pack vide";
         gageList = [[NSMutableArray alloc] init];
@@ -28,11 +29,28 @@
     self = [super init];
     if (self) {
         idPackGage = idPack;
+        free = FALSE;
         titre = @"Sans titre";
         description = @"Description du pack vide";
         gageList = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void)setIdPack:(int)_idPack {
+    idPackGage = _idPack;
+}
+
+- (void)setTitre:(NSString *)_titre {
+    titre = _titre;
+}
+
+- (void)setDescription:(NSString *)_description {
+    description = _description;
+}
+
+- (void)setIsFree:(BOOL)_free {
+    free = _free;
 }
 
 - (void)addGage:(Gage *)g {
@@ -54,6 +72,14 @@
 
 - (NSString *)title {
     return titre;
+}
+
+- (BOOL)isFree {
+    return free;
+}
+
+- (NSString *)getID {
+    return [[NSString alloc] initWithFormat:@"%d",idPackGage];
 }
 
 #pragma mark - NSCoding -
