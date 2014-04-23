@@ -23,6 +23,7 @@
 
 - (ItemPackQuestion *)item;
 - (BOOL)isSelected;
+- (BOOL)isSecured;
 - (int)idPack;
 
 @end

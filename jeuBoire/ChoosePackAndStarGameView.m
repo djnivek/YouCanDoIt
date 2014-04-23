@@ -41,6 +41,7 @@
             ItemPackQuestion *pQ = [[ItemPackQuestion alloc] init];
             [pQ setTitle:[pQR title]];
             [pQ setIdPack:[[pQR getID] intValue]];
+            [pQ setIsFree:[pQR isFree]];
             [packQRScrollView addItemView:pQ];
         }
         
@@ -53,6 +54,7 @@
             ItemPackGages *ipG = [[ItemPackGages alloc] init];
             [ipG setTitle:[pG title]];
             [ipG setIdPack:[[pG getID] intValue]];
+            [ipG setIsFree:[pG isFree]];
             [packGScrollView addItemView:ipG];
         }
         

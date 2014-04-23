@@ -16,7 +16,6 @@
     UILabel *label;
     ItemPackGages *item;
     CheckmarkView *checkmarkView;
-    BOOL selected;
 }
 
 - (void)setItem:(ItemPackGages *)pkQ;
@@ -24,5 +23,6 @@
 
 - (ItemPackGages *)item;
 - (BOOL)isSelected;
+- (BOOL)isSecured;
 
 @end

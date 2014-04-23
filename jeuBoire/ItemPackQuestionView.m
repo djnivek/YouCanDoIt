@@ -64,8 +64,11 @@
     [self addSubview:checkmarkView];
 }
 
+#pragma mark - EVENT -
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self setEnable:![checkmarkView isActivated]];
+    if (![item isSecured])
+        [self setEnable:![checkmarkView isActivated]];
 }
 
 #pragma mark - ACCESSORS -
@@ -81,8 +84,8 @@
 }
 
 - (void)setItem:(ItemPackQuestion *)pkQ {
-    [label setText:[pkQ title]];
-    [item setIdPack:[[pkQ idPack] intValue]];
+    item = pkQ;
+    [label setText:[item title]];
 }
 
 - (ItemPackQuestion *)item {

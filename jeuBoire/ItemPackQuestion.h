@@ -13,15 +13,19 @@
     NSString *title;
     NSString *description;
     int idPack;
+    BOOL isFree;
     //NSString *image;
 }
 
 - (NSString *)title;
 - (NSString *)description;
 - (NSString *)idPack;
+- (BOOL)isSecured;
+- (BOOL)isFree;
 
 - (void)setTitle:(NSString *)_title;
 - (void)setDescription:(NSString *)_description;
 - (void)setIdPack:(int)_idPack;
+- (void)setIsFree:(BOOL)free;
 
 @end

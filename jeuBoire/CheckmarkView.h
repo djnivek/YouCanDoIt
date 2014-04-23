@@ -14,14 +14,17 @@
     UIColor *white;
     UIColor *blue;
     UIColor *invisible;
+    UIColor *gray;
     
     UIBezierPath *ovalPath;
     UIBezierPath *bezierPath;
     
     BOOL activated;
+    BOOL secured;
 }
 
 - (BOOL)isActivated;
+- (BOOL)isSecured;
 
 - (void)setEnable;
 - (void)setDisable;

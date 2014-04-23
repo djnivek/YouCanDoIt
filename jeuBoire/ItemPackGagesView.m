@@ -58,21 +58,24 @@
 
 - (void)addCheckMark {
     checkmarkView = [[CheckmarkView alloc] init];
+    if ([item isSecured])
+        [checkmarkView setSecure];
     CGFloat x = (self.frame.size.width/2)+((self.frame.size.width/COEF_DIV)/2)-20;
     CGFloat y = (self.frame.size.height/2)-((self.frame.size.height/COEF_DIV)/2)+20;
     [checkmarkView setCenter:CGPointMake(x, y)];
     [self addSubview:checkmarkView];
 }
 
+#pragma mark - EVENT -
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self setEnable:![checkmarkView isActivated]];
+    if (![item isSecured])
+        [self setEnable:![checkmarkView isActivated]];
 }
 
 #pragma mark - ACCESSORS -
 
 - (void)setEnable:(BOOL)enable {
-    selected = enable;
-    
     if (!checkmarkView)
         [self addCheckMark];
     
@@ -82,9 +85,9 @@
         [checkmarkView setDisable];
 }
 
-- (void)setItem:(ItemPackGages *)pkQ {
-    [label setText:[pkQ title]];
-    [item setIdPack:[[pkQ idPack] intValue]];
+- (void)setItem:(ItemPackGages *)pG {
+    item = pG;
+    [label setText:[item title]];
 }
 
 - (ItemPackGages *)item {
@@ -92,7 +95,11 @@
 }
 
 - (BOOL)isSelected {
-    return selected;
+    return [checkmarkView isActivated];
+}
+
+- (BOOL)isSecured {
+    return [checkmarkView isSecured];
 }
 
 @end

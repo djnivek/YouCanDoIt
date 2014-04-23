@@ -221,7 +221,6 @@
 				0E61A37A1900222400E51191 /* ItemGage */,
 				0E28BDDA18F70296006C460E /* Checkmark */,
 				0ED19EF718F3F3E100F1F7CF /* ItemQuestion */,
-				0ED19EF618F3F3C900F1F7CF /* ItemGage */,
 				0E9C4F5218CA31D70039F543 /* QRFields.h */,
 				0E9C4F5318CA31D70039F543 /* QRFields.m */,
 				0E3EE6E618BF5C22006501D4 /* PlayerProfilView.h */,
@@ -338,13 +337,6 @@
 				0EA79E9B18EAAED600AEE11C /* OpenUDID.m */,
 			);
 			name = externalLib;
-			sourceTree = "<group>";
-		};
-		0ED19EF618F3F3C900F1F7CF /* ItemGage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ItemGage;
 			sourceTree = "<group>";
 		};
 		0ED19EF718F3F3E100F1F7CF /* ItemQuestion */ = {
