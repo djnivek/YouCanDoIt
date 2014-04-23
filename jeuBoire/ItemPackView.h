@@ -8,20 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class ItemPackGages;
+@class ItemPack;
 @class CheckmarkView;
 
-@interface ItemPackGagesView : UIView
+@interface ItemPackView : UIView
 {
     UILabel *label;
-    ItemPackGages *item;
+    ItemPack *item;
     CheckmarkView *checkmarkView;
 }
 
-- (void)setItem:(ItemPackGages *)pkQ;
+- (void)setItem:(ItemPack *)pkQ;
 - (void)setEnable:(BOOL)enable;
 
-- (ItemPackGages *)item;
+- (ItemPack *)item;
 - (BOOL)isSelected;
 - (BOOL)isSecured;
 

@@ -10,7 +10,7 @@
 #import "GageFields.h"
 #import "Gage.h"
 #import "Gages.h"
-#import "ItemPackGages.h"
+#import "ItemPack.h"
 
 @implementation GageController
 
@@ -62,7 +62,7 @@
 - (int)findIdPackAmongAvailable {
     // Permet de trouver l'identifiant d'un pack aléatoire parmi les packs selectionnés
     int random = arc4random() % [packGageAvalaible count];
-    ItemPackGages *pck = [packGageAvalaible objectAtIndex:random];
+    ItemPack *pck = [packGageAvalaible objectAtIndex:random];
     return [[pck idPack] intValue];
 }
 

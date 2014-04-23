@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Kévin MACHADO. All rights reserved.
 //
 
-#import "ItemPackGagesView.h"
-#import "ItemPackGages.h"
+#import "ItemPackView.h"
+#import "ItemPack.h"
 #import "CheckmarkView.h"
 
 #define COEF_DIV 1.3
 
-@implementation ItemPackGagesView
+@implementation ItemPackView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -21,7 +21,7 @@
         // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
         label = [[UILabel alloc] init];
-        item = [[ItemPackGages alloc] init];
+        item = [[ItemPack alloc] init];
     }
     return self;
 }
@@ -85,12 +85,12 @@
         [checkmarkView setDisable];
 }
 
-- (void)setItem:(ItemPackGages *)pG {
+- (void)setItem:(ItemPack *)pG {
     item = pG;
     [label setText:[item title]];
 }
 
-- (ItemPackGages *)item {
+- (ItemPack *)item {
     return item;
 }
 

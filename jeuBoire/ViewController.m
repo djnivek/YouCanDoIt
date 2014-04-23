@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "ItemPackQuestionContainerScrollView.h"
-#import "ItemPackQuestion.h"
+#import "ItemPack.h"
 
 @interface ViewController ()
 

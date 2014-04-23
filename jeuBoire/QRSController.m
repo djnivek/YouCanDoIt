@@ -10,7 +10,7 @@
 #import "QRFields.h"
 #import "QuestionReponse.h"
 #import "QRLibrary.h"
-#import "ItemPackQuestion.h"
+#import "ItemPack.h"
 
 @implementation QRSController
 
@@ -40,7 +40,7 @@
 - (int)findIdPackAmongAvailable {
     // Permet de trouver l'identifiant d'un pack aléatoire parmi les packs selectionnés
     int random = arc4random() % [packQuestionAvalaible count];
-    ItemPackQuestion *pck = [packQuestionAvalaible objectAtIndex:random];
+    ItemPack *pck = [packQuestionAvalaible objectAtIndex:random];
     return [[pck idPack] intValue];
 }
 

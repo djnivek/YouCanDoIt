@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ItemPackGages : NSObject
+@interface ItemPack : NSObject
 {
     NSString *title;
     NSString *description;

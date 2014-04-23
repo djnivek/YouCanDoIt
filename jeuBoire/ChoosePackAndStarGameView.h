@@ -25,5 +25,6 @@
 
 //  Dictionnaire des packs selectionnés - Rangé par clées ("questions" - "gages")
 - (NSDictionary *)selectedItems;
+- (BOOL)isSelectedPacks;
 
 @end

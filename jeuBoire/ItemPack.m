@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Kévin MACHADO. All rights reserved.
 //
 
-#import "ItemPackGages.h"
+#import "ItemPack.h"
 
-@implementation ItemPackGages
+@implementation ItemPack
 
 - (id)init
 {

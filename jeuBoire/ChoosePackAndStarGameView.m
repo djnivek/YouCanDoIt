@@ -12,8 +12,7 @@
 #import "ItemPackQuestionContainerScrollView.h"
 #import "ItemPackGagesContainerScrollView.h"
 
-#import "ItemPackQuestion.h"
-#import "ItemPackGages.h"
+#import "ItemPack.h"
 
 #import "AppDelegate.h"
 
@@ -38,7 +37,7 @@
         
         NSArray *packQuestionsContained = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] questionsListe] getPackContained];
         for (PackQRs *pQR in packQuestionsContained) {
-            ItemPackQuestion *pQ = [[ItemPackQuestion alloc] init];
+            ItemPack *pQ = [[ItemPack alloc] init];
             [pQ setTitle:[pQR title]];
             [pQ setIdPack:[[pQR getID] intValue]];
             [pQ setIsFree:[pQR isFree]];
@@ -51,7 +50,7 @@
         
         NSArray *packGagesContained = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] gagesList] getPackContained];
         for (PackGages *pG in packGagesContained) {
-            ItemPackGages *ipG = [[ItemPackGages alloc] init];
+            ItemPack *ipG = [[ItemPack alloc] init];
             [ipG setTitle:[pG title]];
             [ipG setIdPack:[[pG getID] intValue]];
             [ipG setIsFree:[pG isFree]];
@@ -84,6 +83,10 @@
             [packQRScrollView selectedItems], @"pack_questions",
             [packGScrollView selectedItems], @"pack_gages",
             nil];
+}
+
+- (BOOL)isSelectedPacks {
+    return ([packGScrollView isSelectedItem] && [packQRScrollView isSelectedItem]);
 }
 
 @end

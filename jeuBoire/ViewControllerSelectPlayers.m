@@ -100,7 +100,6 @@
     
     /**/
     
-    
 #pragma mark TopView
     
     //  Define frame for top
@@ -188,7 +187,16 @@
     ViewControllerGame *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"GameControllerIdentifier"];
     controller.passingPlayers = [[NSMutableArray alloc] initWithArray:[self.playersListScrollView players]];
     controller.passingPackAvalaible = [chooseStarView selectedItems];
-    [self.navigationController pushViewController:controller animated:YES];
+    if ([chooseStarView isSelectedPacks])
+        [self.navigationController pushViewController:controller animated:YES];
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oups !"
+                                                        message:@"Veuillez selectionner les packs que vous souhaitez utiliser"
+                                                       delegate:NULL
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 @end

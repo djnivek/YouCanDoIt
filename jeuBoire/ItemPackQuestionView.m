@@ -7,7 +7,7 @@
 //
 
 #import "ItemPackQuestionView.h"
-#import "ItemPackQuestion.h"
+#import "ItemPack.h"
 #import "CheckmarkView.h"
 
 #define COEF_DIV 1.3
@@ -21,7 +21,7 @@
         // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
         label = [[UILabel alloc] init];
-        item = [[ItemPackQuestion alloc] init];
+        item = [[ItemPack alloc] init];
     }
     return self;
 }
@@ -83,12 +83,12 @@
         [checkmarkView setDisable];
 }
 
-- (void)setItem:(ItemPackQuestion *)pkQ {
+- (void)setItem:(ItemPack *)pkQ {
     item = pkQ;
     [label setText:[item title]];
 }
 
-- (ItemPackQuestion *)item {
+- (ItemPack *)item {
     return item;
 }
 

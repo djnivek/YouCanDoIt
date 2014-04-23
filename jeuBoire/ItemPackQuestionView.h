@@ -8,20 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class ItemPackQuestion;
+@class ItemPack;
 @class CheckmarkView;
 
 @interface ItemPackQuestionView : UIView
 {
     UILabel *label;
-    ItemPackQuestion *item;
+    ItemPack *item;
     CheckmarkView *checkmarkView;
 }
 
-- (void)setItem:(ItemPackQuestion *)pkQ;
+- (void)setItem:(ItemPack *)pkQ;
 - (void)setEnable:(BOOL)enable;
 
-- (ItemPackQuestion *)item;
+- (ItemPack *)item;
 - (BOOL)isSelected;
 - (BOOL)isSecured;
 - (int)idPack;

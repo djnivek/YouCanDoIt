@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class ItemPackQuestion;
+@class ItemPack;
 
 @interface ItemPackQuestionContainerScrollView : UIScrollView
 {
@@ -16,7 +16,8 @@
     CGFloat frameEdge;
 }
 
-- (void)addItemView:(ItemPackQuestion *)item;
+- (void)addItemView:(ItemPack *)item;
 - (NSArray *)selectedItems;
+- (BOOL)isSelectedItem;
 
 @end

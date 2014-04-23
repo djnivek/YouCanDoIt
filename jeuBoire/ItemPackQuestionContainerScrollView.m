@@ -7,8 +7,8 @@
 //
 
 #import "ItemPackQuestionContainerScrollView.h"
-#import "ItemPackQuestionView.h"
-#import "ItemPackQuestion.h"
+#import "ItemPackView.h"
+#import "ItemPack.h"
 
 @implementation ItemPackQuestionContainerScrollView
 
@@ -24,9 +24,9 @@
     return self;
 }
 
-- (void)addItemView:(ItemPackQuestion *)item {
+- (void)addItemView:(ItemPack *)item {
     CGFloat xOrigin = frameEdge*[itemViewStack count];
-    ItemPackQuestionView *pckView = [[ItemPackQuestionView alloc] initWithFrame:CGRectMake(xOrigin, 0, frameEdge, frameEdge)];
+    ItemPackView *pckView = [[ItemPackView alloc] initWithFrame:CGRectMake(xOrigin, 0, frameEdge, frameEdge)];
     [self addSubview:pckView];
     [pckView setItem:item];
     [itemViewStack addObject:pckView];
@@ -39,12 +39,21 @@
 
 - (NSArray *)selectedItems {
     NSMutableArray *selectedItems = [[NSMutableArray alloc] init];
-    for (ItemPackQuestionView *iPQView in itemViewStack) {
+    for (ItemPackView *iPQView in itemViewStack) {
         if ([iPQView isSelected]) {
             [selectedItems addObject:[iPQView item]];
         }
     }
     return (NSArray *)selectedItems;
+}
+
+- (BOOL)isSelectedItem {
+    for (ItemPackView *iPQView in itemViewStack) {
+        if ([iPQView isSelected]) {
+            return TRUE;
+        }
+    }
+    return FALSE;
 }
 
 /*

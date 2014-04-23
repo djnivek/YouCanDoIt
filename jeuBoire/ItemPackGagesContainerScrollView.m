@@ -7,8 +7,8 @@
 //
 
 #import "ItemPackGagesContainerScrollView.h"
-#import "ItemPackGagesView.h"
-#import "ItemPackGages.h"
+#import "ItemPackView.h"
+#import "ItemPack.h"
 
 @implementation ItemPackGagesContainerScrollView
 
@@ -24,9 +24,9 @@
     return self;
 }
 
-- (void)addItemView:(ItemPackGages *)item {
+- (void)addItemView:(ItemPack *)item {
     CGFloat xOrigin = frameEdge*[itemViewStack count];
-    ItemPackGagesView *pckView = [[ItemPackGagesView alloc] initWithFrame:CGRectMake(xOrigin, 0, frameEdge, frameEdge)];
+    ItemPackView *pckView = [[ItemPackView alloc] initWithFrame:CGRectMake(xOrigin, 0, frameEdge, frameEdge)];
     [self addSubview:pckView];
     [pckView setItem:item];
     [itemViewStack addObject:pckView];
@@ -39,12 +39,21 @@
 
 - (NSArray *)selectedItems {
     NSMutableArray *selectedItems = [[NSMutableArray alloc] init];
-    for (ItemPackGagesView *iPGView in itemViewStack) {
+    for (ItemPackView *iPGView in itemViewStack) {
         if ([iPGView isSelected]) {
             [selectedItems addObject:[iPGView item]];
         }
     }
     return (NSArray *)selectedItems;
+}
+
+- (BOOL)isSelectedItem {
+    for (ItemPackView *iPQView in itemViewStack) {
+        if ([iPQView isSelected]) {
+            return TRUE;
+        }
+    }
+    return FALSE;
 }
 
 /*
