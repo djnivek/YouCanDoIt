@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 
 @class ItemPack;
+@class ViewControllerSelectPlayers;
 
 @interface ItemPackGagesContainerScrollView : UIScrollView
 {
     NSMutableArray *itemViewStack;
     CGFloat frameEdge;
+    
+    ViewControllerSelectPlayers *_theDelegate;
 }
 
 - (void)addItemView:(ItemPack *)item;
 - (NSArray *)selectedItems;
 - (BOOL)isSelectedItem;
+- (void)setTheDelegate:(ViewControllerSelectPlayers*)delegate;
 
 @end

@@ -9,6 +9,7 @@
 #import "ItemPackView.h"
 #import "ItemPack.h"
 #import "CheckmarkView.h"
+#import "ViewControllerSelectPlayers.h"
 
 #define COEF_DIV 1.3
 
@@ -71,9 +72,24 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (![item isSecured])
         [self setEnable:![checkmarkView isActivated]];
+    else
+        [self itemUnPurchased];
+}
+
+- (void)itemUnPurchased {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Petit problème"
+                                                    message:@"L'élément que vous souhaitez utiliser n'est pas débloqué, voulez vous obtenir plus d'information sur l'objet ?"
+                                                   delegate:mainDelegate
+                                          cancelButtonTitle:@"Non"
+                                          otherButtonTitles:@"Plus d'informations", nil];
+    [alert show];
 }
 
 #pragma mark - ACCESSORS -
+
+- (void)setMainDelegate:(ViewControllerSelectPlayers*)delegate {
+    mainDelegate = delegate;
+}
 
 - (void)setEnable:(BOOL)enable {
     if (!checkmarkView)

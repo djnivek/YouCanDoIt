@@ -27,6 +27,7 @@
 - (void)addItemView:(ItemPack *)item {
     CGFloat xOrigin = frameEdge*[itemViewStack count];
     ItemPackView *pckView = [[ItemPackView alloc] initWithFrame:CGRectMake(xOrigin, 0, frameEdge, frameEdge)];
+    [pckView setMainDelegate:_theDelegate];
     [self addSubview:pckView];
     [pckView setItem:item];
     [itemViewStack addObject:pckView];
@@ -54,6 +55,10 @@
         }
     }
     return FALSE;
+}
+
+- (void)setTheDelegate:(ViewControllerSelectPlayers*)delegate {
+    _theDelegate = delegate;
 }
 
 /*

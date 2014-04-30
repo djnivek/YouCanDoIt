@@ -44,8 +44,9 @@
             [packQRScrollView addItemView:pQ];
         }
         
-        CGRect frameGSScrollView = CGRectMake(0, self.frame.size.height-50-(200/2), self.frame.size.width, 200);
+        CGRect frameGSScrollView = CGRectMake(0, self.frame.size.height-140-(200/2), self.frame.size.width, 200);
         packGScrollView = [[ItemPackGagesContainerScrollView alloc] initWithFrame:frameGSScrollView];
+        [packGScrollView setTheDelegate:delegate];
         [self addSubview:packGScrollView];
         
         NSArray *packGagesContained = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] gagesList] getPackContained];

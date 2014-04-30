@@ -10,16 +10,20 @@
 
 @class ItemPack;
 @class CheckmarkView;
+@class ViewControllerSelectPlayers;
 
 @interface ItemPackView : UIView
 {
     UILabel *label;
     ItemPack *item;
     CheckmarkView *checkmarkView;
+    
+    ViewControllerSelectPlayers* mainDelegate;
 }
 
 - (void)setItem:(ItemPack *)pkQ;
 - (void)setEnable:(BOOL)enable;
+- (void)setMainDelegate:(ViewControllerSelectPlayers*)delegate;
 
 - (ItemPack *)item;
 - (BOOL)isSelected;

@@ -11,7 +11,8 @@
 NSString* const GAMESESSION_WrongResponse   = @"GAMESESSION_WrongResponse";
 NSString* const GAMESESSION_GoodResponse    = @"GAMESESSION_GoodResponse";
 //NSString* const SERVER                      = @"192.168.1.224";
-NSString* const SERVER                      = @"localhost";
+NSString* const SERVER                      = @"10.0.1.161";
+//NSString* const SERVER                      = @"localhost";
 NSString* const PORT                        = @"8888";
 
 @implementation Const
